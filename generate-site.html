@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="" xml:lang="">
+<head>
+  <meta charset="utf-8" />
+  <meta name="generator" content="pandoc" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
+  <title>ecallen</title>
+  <style>
+    code{white-space: pre-wrap;}
+    span.smallcaps{font-variant: small-caps;}
+    div.columns{display: flex; gap: min(4vw, 1.5em);}
+    div.column{flex: auto; overflow-x: auto;}
+    div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+    /* The extra [class] is a hack that increases specificity enough to
+       override a similar rule in reveal.js */
+    ul.task-list[class]{list-style: none;}
+    ul.task-list li input[type="checkbox"] {
+      font-size: inherit;
+      width: 0.8em;
+      margin: 0 0.8em 0.2em -1.6em;
+      vertical-align: middle;
+    }
+    .display.math{display: block; text-align: center; margin: 0.5rem auto;}
+  </style>
+  <link rel="stylesheet" href="https://latex.now.sh/style.css" />
+</head>
+<body>
+<button id="dark-mode-toggle">Toggle dark mode</button>
+<header id="title-block-header">
+<h1 class="title">ecallen</h1>
+</header>
+<h1 id="how-this-site-is-generated-using-pandoc">How this site is
+generated using Pandoc</h1>
+<p>Not going to lie. Most of this was adapted from <a
+href="https://www.romangeber.com/static_websites_with_pandoc/">https://www.romangeber.com/static_websites_with_pandoc/</a>.</p>
+<p>My needs are simpler so the process is stripped down a little. Here
+is my script to generate the blog.</p>
+<pre class="shell:"><code>
+#! /bin/bash
+
+# clear out the html dir before regeneration
+rm html/*
+
+# Copy a fresh index file into place
+cp index.md.tmpl index.md
+
+# Regenerate the sections for notes
+cd sections/
+
+# Remove the old files
+rm section*
+
+# Take the Notes dump file and split it up by header
+csplit ../notes.md --prefix=&#39;section.&#39; --suffix-format=&#39;%04d.md&#39; --elide-empty-files &#39;/^# /&#39; {*}
+cd ../
+
+# Run pandoc in sections/ to convert to html
+for f in $(find ./sections -name &#39;*.md&#39; | grep -v templates | grep -v drafts)
+do
+    fn=$(echo &quot;$f&quot; | cut -c3-)
+    bn=$(basename -s .md $fn)
+    echo &quot;filename: $fn output: html/${bn}.html&quot; 
+    pandoc ${fn}  -o html/${bn}.html --standalone --template=./default.html5 --css &quot;https://latex.now.sh/style.css&quot; --include-after-body=&quot;license.html&quot; --metadata title=&quot;ecallen&quot; --variable=lastUpdated:$( stat -c %y ${fn} | cut -f 1 -d &#39; &#39; ) --variable=creationDate:$( stat -c %w ${fn} | cut -f 1 -d &#39; &#39; ) 
+done
+
+# For each section.*.html create a link in the index.md
+for section in $(grep &#39;h1 id=&#39; html/section.000*.html | grep -v ecallen | htmlq --text | sed -r &#39;s/.{4}//&#39;)
+do 
+    echo ${section} | awk -F: &#39;{print &quot;- [&quot;$2&quot;](&quot;$1&quot;)&quot;}&#39; &gt;&gt; index.md
+done
+
+# Add all the Zettelkasten to the index so it can be searched
+echo &quot;&quot; &gt;&gt; index.md
+cat notes.md &gt;&gt; index.md
+
+# Generate the index.html from index.md and any blog entries
+for f in $(find . -name &#39;*.md&#39; | grep -v templates | grep -v drafts | grep -v sections)
+do
+    fn=$(echo &quot;$f&quot; | cut -c3-)
+    bn=$(basename -s .md $fn)
+    echo &quot;filename: $fn output: html/${bn}.html&quot; 
+    pandoc ${fn}  -o html/${bn}.html --standalone --template=./default.html5 --css &quot;https://latex.now.sh/style.css&quot; --include-after-body=&quot;license.html&quot; --metadata title=&quot;ecallen&quot; --variable=lastUpdated:$( stat -c %y ${fn} | cut -f 1 -d &#39; &#39; ) --variable=creationDate:$( stat -c %w ${fn} | cut -f 1 -d &#39; &#39; ) 
+done
+</code></pre>
+<p>The workflow is like this, create a markdown file/blog entry in the
+drafts directory. Once the file is ready then copy it up to the parent
+dir and add a entry in the index.md file. Note that the css is from
+latex.now.sh. The templates were cloned from the <a
+href="https://github.com/jgm/pandoc-templates">pandoc templates
+repo</a>.</p>
+<p>In order to look a the blog locally I use a quick Flask script to
+serve the page and check it out real quick.</p>
+<pre class="python:"><code>
+from flask import Flask, request, send_from_directory
+
+# set the project root directory as the static folder, you can set others.
+app = Flask(__name__, static_url_path=&#39;/html&#39;)
+
+@app.route(&#39;/&lt;path:path&gt;&#39;)
+def send_html(path):
+    return send_from_directory(&#39;html&#39;, path)
+
+if __name__ == &quot;__main__&quot;:
+    app.run()
+
+</code></pre>
+<p>That’s it. Sweet, simple and beautiful.</p>
+<br>
+<br>
+<hr>
+<a rel="license" href="http://creativecommons.org/licenses/by-sa/4.0/"><img alt="Creative Commons License" style="border-width:0" src="https://i.creativecommons.org/l/by-sa/4.0/88x31.png" /></a><br />This work is licensed under a <a rel="license" href="http://creativecommons.org/licenses/by-sa/4.0/">Creative Commons Attribution-ShareAlike 4.0 International License</a>.
+
+<script>
+    const darkModeToggle = document.getElementById('dark-mode-toggle')
+    darkModeToggle.addEventListener('click', () => {
+      document.body.classList.toggle('latex-dark')
+    })
+</script>
+</body>
+</html>

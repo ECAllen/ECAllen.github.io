@@ -1,0 +1,1469 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="" xml:lang="">
+<head>
+  <meta charset="utf-8" />
+  <meta name="generator" content="pandoc" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
+  <title>ecallen</title>
+  <style>
+    code{white-space: pre-wrap;}
+    span.smallcaps{font-variant: small-caps;}
+    div.columns{display: flex; gap: min(4vw, 1.5em);}
+    div.column{flex: auto; overflow-x: auto;}
+    div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+    /* The extra [class] is a hack that increases specificity enough to
+       override a similar rule in reveal.js */
+    ul.task-list[class]{list-style: none;}
+    ul.task-list li input[type="checkbox"] {
+      font-size: inherit;
+      width: 0.8em;
+      margin: 0 0.8em 0.2em -1.6em;
+      vertical-align: middle;
+    }
+    .display.math{display: block; text-align: center; margin: 0.5rem auto;}
+    /* CSS for syntax highlighting */
+    pre > code.sourceCode { white-space: pre; position: relative; }
+    pre > code.sourceCode > span { line-height: 1.25; }
+    pre > code.sourceCode > span:empty { height: 1.2em; }
+    .sourceCode { overflow: visible; }
+    code.sourceCode > span { color: inherit; text-decoration: inherit; }
+    div.sourceCode { margin: 1em 0; }
+    pre.sourceCode { margin: 0; }
+    @media screen {
+    div.sourceCode { overflow: auto; }
+    }
+    @media print {
+    pre > code.sourceCode { white-space: pre-wrap; }
+    pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+    }
+    pre.numberSource code
+      { counter-reset: source-line 0; }
+    pre.numberSource code > span
+      { position: relative; left: -4em; counter-increment: source-line; }
+    pre.numberSource code > span > a:first-child::before
+      { content: counter(source-line);
+        position: relative; left: -1em; text-align: right; vertical-align: baseline;
+        border: none; display: inline-block;
+        -webkit-touch-callout: none; -webkit-user-select: none;
+        -khtml-user-select: none; -moz-user-select: none;
+        -ms-user-select: none; user-select: none;
+        padding: 0 4px; width: 4em;
+        color: #aaaaaa;
+      }
+    pre.numberSource { margin-left: 3em; border-left: 1px solid #aaaaaa;  padding-left: 4px; }
+    div.sourceCode
+      {   }
+    @media screen {
+    pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+    }
+    code span.al { color: #ff0000; font-weight: bold; } /* Alert */
+    code span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
+    code span.at { color: #7d9029; } /* Attribute */
+    code span.bn { color: #40a070; } /* BaseN */
+    code span.bu { color: #008000; } /* BuiltIn */
+    code span.cf { color: #007020; font-weight: bold; } /* ControlFlow */
+    code span.ch { color: #4070a0; } /* Char */
+    code span.cn { color: #880000; } /* Constant */
+    code span.co { color: #60a0b0; font-style: italic; } /* Comment */
+    code span.cv { color: #60a0b0; font-weight: bold; font-style: italic; } /* CommentVar */
+    code span.do { color: #ba2121; font-style: italic; } /* Documentation */
+    code span.dt { color: #902000; } /* DataType */
+    code span.dv { color: #40a070; } /* DecVal */
+    code span.er { color: #ff0000; font-weight: bold; } /* Error */
+    code span.ex { } /* Extension */
+    code span.fl { color: #40a070; } /* Float */
+    code span.fu { color: #06287e; } /* Function */
+    code span.im { color: #008000; font-weight: bold; } /* Import */
+    code span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Information */
+    code span.kw { color: #007020; font-weight: bold; } /* Keyword */
+    code span.op { color: #666666; } /* Operator */
+    code span.ot { color: #007020; } /* Other */
+    code span.pp { color: #bc7a00; } /* Preprocessor */
+    code span.sc { color: #4070a0; } /* SpecialChar */
+    code span.ss { color: #bb6688; } /* SpecialString */
+    code span.st { color: #4070a0; } /* String */
+    code span.va { color: #19177c; } /* Variable */
+    code span.vs { color: #4070a0; } /* VerbatimString */
+    code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
+  </style>
+  <link rel="stylesheet" href="https://latex.now.sh/style.css" />
+</head>
+<body>
+<button id="dark-mode-toggle">Toggle dark mode</button>
+<header id="title-block-header">
+<h1 class="title">ecallen</h1>
+</header>
+<h1 id="zettelkasten">Zettelkasten</h1>
+<p>A co-worker of mine used to keep all his notes in one large notepad
+file. He literally used Windows notepad.Then when he needed to check his
+notes, he would simply do keyword searches on the file. It went back
+years and proved to be a better reference than a fancy knowledge base.
+This file is a similar dump for myself. It includes everything I read,
+notes and cheatsheets. Organized with markdown but may move for emacs
+org mode format in the future. Creative commons license.<br />
+## Ideas and Slogans</p>
+<p>https://slife.org/japanese-proverbs/</p>
+<p>成功する事よりも、失敗しない事の方が重要だ。- Seikou suru koto yori
+mo, shippai shinai koto no hou ga juuyou da.</p>
+<p>Meaning: It’s more important to not fail than to succeed.</p>
+<p>“I constantly see people rise in life who are not the smartest,
+sometimes not even the most diligent, but they are learning machines.
+They go to bed every night a little wiser than they were when they got
+up and boy does that help, particularly when you have a long run ahead
+of you.” ― Charles T. Munger</p>
+<p>Simple tools for complex interactions</p>
+<p>Tools over process</p>
+<p>Reality captured in user friendly symbols and processed for
+understanding. ― Slogan for the idea channel ## Reading/Books ### ECDSA
+https://www.instructables.com/Understanding-how-ECDSA-protects-your-data/</p>
+<p>Allows verification of authenticity without compromising security. It
+is impossible to forge a signature. It does no encrypt the data but
+ensures it is not tampered with.</p>
+<p>Algo (high level)</p>
+<pre><code>choose random point on curve, point of origin
+
+generate a random number, private keys
+
+apply equation to private key and point of origin, public key</code></pre>
+<p>Sign the file</p>
+<pre><code>equation(use the private key, with a hash of the file), signature
+
+signature is divided into R and S</code></pre>
+<p>Verification</p>
+<pre><code>equation(S, public key) == R</code></pre>
+<p>ECDSA uses SHA1 hashes</p>
+<h3 id="mastering-bitcoin">Mastering Bitcoin</h3>
+<p>transaction input and output - there will be a difference between
+them which is the miner fee</p>
+<p>transactions form a chain</p>
+<p>users keys can unlock previous output in the chain proving
+ownership</p>
+<p>change address - address of new and old user</p>
+<p>UTXO - unspent transactions database ### (Ethereum
+Book)[https://github.com/ethereumbook/ethereumbook] ### Fallback
+functions</p>
+<p>It is called when a non-existent function is called on the
+contract.</p>
+<p>It is required to be marked external.</p>
+<p>It has no name.</p>
+<p>It has no arguments</p>
+<p>It can not return any thing.</p>
+<p>It can be defined one per contract.</p>
+<p>If not marked payable, it will throw exception if contract receives
+plain ether without data.</p>
+<p>Solidity fallback function:</p>
+<p>It has no name, no arguments, no return values. It external and
+payable. Defined once. Called when non-existent function called.</p>
+<h3 id="eoa-vs.-contract-accounts">EOA vs. Contract Accounts</h3>
+<p>Externally owned accounts are those that have a private key; having
+the private key means control over access to funds or contracts.</p>
+<p>A contract account has smart contract code, which a simple EOA can’t
+have. Furthermore, a contract account does not have a private key.
+Instead, it is owned (and controlled) by the logic of its smart contract
+code: the software program recorded on the Ethereum blockchain at the
+contract account’s creation and executed by the EVM.</p>
+<p>account addresses are derived directly from private keys: a private
+key uniquely determines a single Ethereum address, also known as an
+account.</p>
+<h3 id="cryptography">Cryptography</h3>
+<p>There is no encryption as part of the Ethereum protocol—all messages
+that are sent as part of the operation of the Ethereum network can
+(necessarily) be read by everyone. As such, private keys are only used
+to create digital signatures for transaction authentication.</p>
+<p>Starting with a private key in the form of a randomly generated
+number k, we multiply it by a predetermined point on the curve called
+the generator point G to produce another point somewhere else on the
+curve, which is the corresponding public key K: K = k * G</p>
+<p>the generator point is always the same for all Ethereum users</p>
+<p>Ethereum only uses uncompressed public keys; therefore the only
+prefix that is relevant is (hex) 04.</p>
+<p>The test most commonly used for a hash function is the empty input.
+If you run the hash function with an empty string as input you should
+see the following results:</p>
+<p>Keccak256(““) =
+c5d2460186f7233c927e7db2dcc703c0e500b653ca82273b7bfad8045d85a470</p>
+<p>SHA3(““) =
+a7ffc6f8bf1ed76651c14756a061d662f580ff4de43b49fa82d80a4b80f8434a</p>
+<p>Ethereum uses Keccak-256, even though it is often called SHA-3 in the
+code.</p>
+<p>Ethereum addresses are unique identifiers that are derived from
+public keys or contracts using the Keccak-256 one-way hash function.</p>
+<p>We use Keccak-256 to calculate the hash of this public key:</p>
+<p>Keccak256(K) =
+2a5bc342ed616b5ba5732269001d3f1ef827552ae1114027bd3ecf1f086ba0f9</p>
+<p>Then we keep only the last 20 bytes (least significant bytes), which
+is our Ethereum address:</p>
+<p>001d3f1ef827552ae1114027bd3ecf1f086ba0f9</p>
+<h3 id="wallet">Wallet</h3>
+<h3 id="transactions">Transactions</h3>
+<p>A transaction is a serialized binary message that contains the
+following data:</p>
+<p>Nonce</p>
+<pre><code>A sequence number, issued by the originating EOA, used to prevent message replay</code></pre>
+<p>Gas price</p>
+<pre><code>The amount of ether (in wei) that the originator is willing to pay for each unit of gas</code></pre>
+<p>Gas limit</p>
+<pre><code>The maximum amount of gas the originator is willing to buy for this transaction</code></pre>
+<p>Recipient</p>
+<pre><code>The destination Ethereum address</code></pre>
+<p>Value</p>
+<pre><code>The amount of ether (in wei) to send to the destination</code></pre>
+<p>Data</p>
+<pre><code>The variable-length binary data payload</code></pre>
+<p>v,r,s</p>
+<pre><code>The three components of an ECDSA digital signature of the originating EOA</code></pre>
+<h3 id="smart-contracts-and-solidity">Smart Contracts and Solidity</h3>
+<p>Computer programs</p>
+<pre><code>Smart contracts are simply computer programs. The word “contract” has no legal meaning in this context.</code></pre>
+<p>Immutable</p>
+<pre><code>Once deployed, the code of a smart contract cannot change. Unlike with traditional software, the only way to modify a smart contract is to deploy a new instance.</code></pre>
+<p>Deterministic</p>
+<pre><code>The outcome of the execution of a smart contract is the same for everyone who runs it, given the context of the transaction that initiated its execution and the state of the Ethereum blockchain at the moment of execution.</code></pre>
+<p>EVM context</p>
+<pre><code>Smart contracts operate with a very limited execution context. They can access their own state, the context of the transaction that called them, and some information about the most recent blocks.</code></pre>
+<p>Decentralized world computer</p>
+<pre><code>The EVM runs as a local instance on every Ethereum node, but because all instances of the EVM operate on the same initial state and produce the same final state, the system as a whole operates as a single &quot;world compute</code></pre>
+<h4 id="lifecycle">Lifecycle</h4>
+<p>0x0 special contract creation address</p>
+<p>contracts only run if they are called by a transaction</p>
+<p>contracts are atomic</p>
+<p>To delete a contract, you execute an EVM opcode called SELFDESTRUCT.
+That operation costs “negative gas,” a gas refund, thereby incentivizing
+the release of network client resources from the deletion of stored
+state.</p>
+<h4 id="solidity">Solidity</h4>
+<p>function syntax:</p>
+<p>function FunctionName([parameters])
+{public|private|internal|external} [pure|view|payable] [modifiers]
+[returns (return types)]</p>
+<h4 id="gas">Gas</h4>
+<p>estimating gas cost:</p>
+<p>var contract = web3.eth.contract(abi).at(address); var gasEstimate =
+contract.myAweSomeMethod.estimateGas(arg1, arg2, {from: account});</p>
+<p>To obtain the gas price from the network you can use:</p>
+<p>var gasPrice = web3.eth.getGasPrice();</p>
+<p>And from there you can estimate the gas cost:</p>
+<p>var gasCostInEther = web3.utils.fromWei((gasEstimate * gasPrice),
+‘ether’);</p>
+<h3 id="security">Security</h3>
+<h4 id="re-entrency">Re-entrency</h4>
+<p>This type of attack can occur when a contract sends ether to an
+unknown address. An attacker can carefully construct a contract at an
+external address that contains malicious code in the fallback
+function.</p>
+<h5 id="prevention">prevention</h5>
+<p>The first is to (whenever possible) use the built-in transfer
+function when sending ether to external contracts.</p>
+<p>The second technique is to ensure that all logic that changes state
+variables happens before ether is sent out of the contract (or any
+external call).</p>
+<p>A third technique is to introduce a mutex.</p>
+<h4 id="over-flow-under-flow">over flow under flow</h4>
+<h5 id="prevention-1">prevention</h5>
+<p>The current conventional technique to guard against under/overflow
+vulnerabilities is to use or build mathematical libraries that replace
+the standard math operators addition, subtraction, and multiplication
+(division is excluded as it does not cause over/underflows and the EVM
+reverts on division by 0).</p>
+<h3 id="tokens">Tokens</h3>
+<h4 id="interface">Interface</h4>
+<p>ERC20</p>
+<p>The ERC20 Interface in Solidity:</p>
+<pre class="solidity"><code>
+contract ERC20 {
+   function totalSupply() constant returns (uint theTotalSupply);
+   function balanceOf(address _owner) constant returns (uint balance);
+   function transfer(address _to, uint _value) returns (bool success);
+   function transferFrom(address _from, address _to, uint _value) returns
+      (bool success);
+   function approve(address _spender, uint _value) returns (bool success);
+   function allowance(address _owner, address _spender) constant returns
+      (uint remaining);
+   event Transfer(address indexed _from, address indexed _to, uint _value);
+   event Approval(address indexed _owner, address indexed _spender, uint _value);
+}
+</code></pre>
+<p>data structures</p>
+<p>mapping(address =&gt; uint256) balances;</p>
+<p>mapping (address =&gt; mapping (address =&gt; uint256)) public
+allowed;</p>
+<h4 id="workflows">Workflows</h4>
+<ol type="1">
+<li><p>transfer - wallet to wallet direct transfer of tokens, uses the
+‘transfer’ function</p></li>
+<li><p>approve and transfer - two transaction</p></li>
+</ol>
+<h1 id="editors">Editors</h1>
+<h2 id="nvim">nvim</h2>
+<h3 id="set-foling-in-nvim">set foling in nvim</h3>
+<p>https://bitcrowd.dev/folding-sections-of-markdown-in-vim/</p>
+<p>https://neovim.io/doc/user/fold.html</p>
+<p>config/nvim/lua/config/options.lua</p>
+<div class="sourceCode" id="cb17"><pre
+class="sourceCode lua"><code class="sourceCode lua"><span id="cb17-1"><a href="#cb17-1" aria-hidden="true" tabindex="-1"></a><span class="kw">local</span> <span class="va">vim</span> <span class="op">=</span> <span class="va">vim</span></span>
+<span id="cb17-2"><a href="#cb17-2" aria-hidden="true" tabindex="-1"></a><span class="kw">local</span> <span class="va">opt</span> <span class="op">=</span> <span class="va">vim</span><span class="op">.</span><span class="va">opt</span></span>
+<span id="cb17-3"><a href="#cb17-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb17-4"><a href="#cb17-4" aria-hidden="true" tabindex="-1"></a><span class="va">opt</span><span class="op">.</span><span class="va">foldmethod</span> <span class="op">=</span> <span class="st">&quot;expr&quot;</span></span>
+<span id="cb17-5"><a href="#cb17-5" aria-hidden="true" tabindex="-1"></a><span class="va">opt</span><span class="op">.</span><span class="va">foldexpr</span> <span class="op">=</span> <span class="st">&quot;nvim_treesitter#foldexpr()&quot;</span></span></code></pre></div>
+<h2 id="vim">vim</h2>
+<p>format a file gg =G</p>
+<p>indent visual select &lt; or &gt;</p>
+<h4 id="projectile">Projectile</h4>
+<p>M-x projectile-discover-in-directory</p>
+<h4 id="dired">Dired</h4>
+<p>create file spc-. then type filename</p>
+<p>open neotree: SPC-o-p</p>
+<h4 id="buffers-and-windows">Buffers and windows</h4>
+<p>buffers - hold data, usually file</p>
+<h1 id="templates">Templates</h1>
+<h2 id="python-makefile">python Makefile</h2>
+<div class="sourceCode" id="cb18"><pre
+class="sourceCode makefile"><code class="sourceCode makefile"><span id="cb18-1"><a href="#cb18-1" aria-hidden="true" tabindex="-1"></a><span class="dv">snapshot:</span></span>
+<span id="cb18-2"><a href="#cb18-2" aria-hidden="true" tabindex="-1"></a><span class="er">        </span>pip3 freeze &gt; requirements.txt</span>
+<span id="cb18-3"><a href="#cb18-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb18-4"><a href="#cb18-4" aria-hidden="true" tabindex="-1"></a><span class="dv">install:</span></span>
+<span id="cb18-5"><a href="#cb18-5" aria-hidden="true" tabindex="-1"></a><span class="er">        </span>pip3 install --upgrade pip &amp;&amp; pip3 install -r requirements.txt</span>
+<span id="cb18-6"><a href="#cb18-6" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb18-7"><a href="#cb18-7" aria-hidden="true" tabindex="-1"></a><span class="dv">lint:</span></span>
+<span id="cb18-8"><a href="#cb18-8" aria-hidden="true" tabindex="-1"></a><span class="er">        </span>pylint --disable=R,C app/main.py</span>
+<span id="cb18-9"><a href="#cb18-9" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb18-10"><a href="#cb18-10" aria-hidden="true" tabindex="-1"></a><span class="dv">format:</span></span>
+<span id="cb18-11"><a href="#cb18-11" aria-hidden="true" tabindex="-1"></a><span class="er">        </span>black app/*</span>
+<span id="cb18-12"><a href="#cb18-12" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb18-13"><a href="#cb18-13" aria-hidden="true" tabindex="-1"></a><span class="dv">test:</span></span>
+<span id="cb18-14"><a href="#cb18-14" aria-hidden="true" tabindex="-1"></a><span class="er">        </span>python -m pytest -vv --cov=main test_main.py</span></code></pre></div>
+<h1 id="programming">Programming</h1>
+<h2 id="docker">Docker</h2>
+<p>docker init - create a Dockerfile</p>
+<p>docker build -t <tag> . - build a docker image</p>
+<p>docker run -d –name mycontainer -p 80:80 myimage</p>
+<p>docker rm <container id></p>
+<h2 id="ollama">Ollama</h2>
+<p>ollama list - list all models</p>
+<p>ollama run codellama:7b - download and run the 7 billion parameter
+codellama model</p>
+<p>ollama run codellama:7b-python - fine tuned model for python</p>
+<h2 id="tailwind">Tailwind</h2>
+<p>tailwindcss -w -i styles/main.css -o static/css/main.css</p>
+<h2 id="python">Python</h2>
+<p>dis.dis(<func>) - disassemble a function</p>
+<p>dir(<object>)</p>
+<p>help(<object>)</p>
+<p>identity - location in memory of an object</p>
+<p>id(<var>) - location in memory</p>
+<p>type(<var>)</p>
+<p>mutable - dict,list</p>
+<p>immutable - strings tuples, integers *reassignment changes
+identity</p>
+<p>Dunder methods - Double UNDERscore methods “<strong>add</strong>” or
+magic methods</p>
+<p>help(object.method)</p>
+<p>File iterate through file</p>
+<div class="sourceCode" id="cb19"><pre
+class="sourceCode python"><code class="sourceCode python"><span id="cb19-1"><a href="#cb19-1" aria-hidden="true" tabindex="-1"></a><span class="cf">with</span> <span class="bu">open</span>(<span class="st">&#39;somefile&#39;</span>,<span class="st">&#39;r&#39;</span>) <span class="im">as</span> my_file:</span>
+<span id="cb19-2"><a href="#cb19-2" aria-hidden="true" tabindex="-1"></a>    <span class="cf">for</span> line <span class="kw">in</span> my_file:</span>
+<span id="cb19-3"><a href="#cb19-3" aria-hidden="true" tabindex="-1"></a>        <span class="bu">print</span>(line)</span></code></pre></div>
+<p>coerce booleans</p>
+<p>ex.</p>
+<p>bool(0) -&gt; False</p>
+<p>bool(4) -&gt; True</p>
+<p>singleton - one copy, example None</p>
+<div class="sourceCode" id="cb20"><pre
+class="sourceCode python"><code class="sourceCode python"><span id="cb20-1"><a href="#cb20-1" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb20-2"><a href="#cb20-2" aria-hidden="true" tabindex="-1"></a>a <span class="op">=</span> <span class="va">None</span></span>
+<span id="cb20-3"><a href="#cb20-3" aria-hidden="true" tabindex="-1"></a>b <span class="op">=</span> <span class="va">None</span></span>
+<span id="cb20-4"><a href="#cb20-4" aria-hidden="true" tabindex="-1"></a><span class="bu">id</span>(a)</span>
+<span id="cb20-5"><a href="#cb20-5" aria-hidden="true" tabindex="-1"></a><span class="bu">id</span>(b)</span></code></pre></div>
+<p>will be the same value</p>
+<p>PEP8 prefer 4 spaces to indent code</p>
+<p>define a list names = [‘Evee’,‘Harper’,‘Lily’,‘Linus’]</p>
+<p>A for loop ccan have a else clause. Code in the else clause will
+execute if the for loop did not hit a break statement.</p>
+<pre class="python:"><code>    
+positive = False
+for num in items:
+    if num &lt; 0:
+        break
+    else:
+        postive = True
+               </code></pre>
+<p>set default method</p>
+<pre class="python:"><code>
+count = {}
+for name in names:
+    count.setdefault(name,0)
+    count[name] += 1
+    
+
+def funcname(arg):
+    body
+               
+stride
+every_other_name[0:4:2]
+
+Files
+fin = open(&#39;etc/passwd&#39;)
+for line in fin:
+     print line
+     
+with open(&#39;/tmp/names.txt&#39;,&#39;w&#39;) as fout:
+    fout.write(&#39;Evee\n&#39;)
+    
+Using file as seq
+def add_numbers(filename):
+    with open(filename) as fin:
+        return add_nums_to_seq(fin)
+
+def add_nums_to_seq(seq):
+    results = []
+    for num, line in enumerate(seq):
+    enumerate(seq):
+    results.append(&#39;{0}-{1}&#39;.format(num,line))
+    return results
+               </code></pre>
+<p>Object - grouping together state and methods</p>
+<p>Class - define objects</p>
+<p>class Animal</p>
+<p>generator example</p>
+<pre class="python:"><code>
+xs = (x for x in range(4))
+xs.__next__()
+</code></pre>
+<h3 id="introspection">Introspection</h3>
+<p>objects store their type in their <strong>class</strong> attr</p>
+<p>type()</p>
+<p>issubclass()</p>
+<p>isinstance()</p>
+<p>dir()</p>
+<p>hasattr(<object>, ‘attr’)</p>
+<p>getattr(<object>, ‘attr’) or <object>.’attr’ example
+a.denonminator</p>
+<p>prefer EAFP easier to as for forgiveness</p>
+<p>globals() - introspect the global namespace</p>
+<p>globals()[foo] = ‘bar’ &lt;– globals dict IS the global namespace</p>
+<p>locals() - introspect the local namespace</p>
+<p>f-strings - PEP 498, ex. f”{name}”</p>
+<p>inspect module :wqa</p>
+<h3 id="django">Django</h3>
+<ul>
+<li>start a project</li>
+</ul>
+<p>django-admin startproject myproject</p>
+<ul>
+<li>run project</li>
+</ul>
+<p>python manage.py runserver</p>
+<ul>
+<li>create a app</li>
+</ul>
+<p>python manage.py startapp <app></p>
+<ul>
+<li>show migrations</li>
+</ul>
+<p>python manage.py showmigrations</p>
+<ul>
+<li>run all pending migrations</li>
+</ul>
+<p>python manage.py migrate</p>
+<ul>
+<li>create migrations based on models</li>
+</ul>
+<p>python manage.py makemigrations</p>
+<ul>
+<li>see a specific migration</li>
+</ul>
+<p>python manage.py sqlmigrate <migration></p>
+<ul>
+<li>misc</li>
+</ul>
+<p>python manage.py createsuperuser</p>
+<h4 id="files">Files</h4>
+<p>settings.py - INSTALLED_APPS[] list of apps</p>
+<p>urls.py - routing</p>
+<h3 id="tensorflow">Tensorflow</h3>
+<p>rule of thumb: each layer powers of 2, decreasing</p>
+<p>model performance/deal with over fitting:</p>
+<pre><code>use a dropout layer
+
+    start with 20 - 30%
+
+    will result in more epochs
+
+make more data
+
+    for image data
+
+    ```python
+    keras.preprocessing.image.ImageDataGenerator(....)
+    ```</code></pre>
+<h4 id="data-wrangling">Data wrangling</h4>
+<p>example of loading train a test data sets from tf data sets:</p>
+<div class="sourceCode" id="cb25"><pre
+class="sourceCode python"><code class="sourceCode python"><span id="cb25-1"><a href="#cb25-1" aria-hidden="true" tabindex="-1"></a>mnist_train, info <span class="op">=</span> tfds.load(<span class="st">&#39;mnist&#39;</span>, split<span class="op">=</span><span class="st">&#39;train&#39;</span>, as_supervised<span class="op">=</span><span class="va">True</span>, with_info<span class="op">=</span><span class="va">True</span>)</span>
+<span id="cb25-2"><a href="#cb25-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb25-3"><a href="#cb25-3" aria-hidden="true" tabindex="-1"></a>mnist_test <span class="op">=</span> tfds.load(<span class="st">&#39;mnist&#39;</span>, split<span class="op">=</span><span class="st">&#39;test&#39;</span>, as_supervised<span class="op">=</span><span class="va">True</span>)</span></code></pre></div>
+<p>use Keras to retrieve data:</p>
+<div class="sourceCode" id="cb26"><pre
+class="sourceCode python"><code class="sourceCode python"><span id="cb26-1"><a href="#cb26-1" aria-hidden="true" tabindex="-1"></a>tf.keras.utils.get_file(fn, url, cache_dir<span class="op">=</span>cache_dir, cache_sub_dir<span class="op">=</span>cache_subdir)</span></code></pre></div>
+<p>read csv using pandas:</p>
+<div class="sourceCode" id="cb27"><pre
+class="sourceCode python"><code class="sourceCode python"><span id="cb27-1"><a href="#cb27-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> pandas <span class="im">as</span> pd <span class="co">#&lt;-- pd by convention</span></span>
+<span id="cb27-2"><a href="#cb27-2" aria-hidden="true" tabindex="-1"></a>column_names <span class="op">=</span> [<span class="st">&#39;col1&#39;</span>,<span class="st">&#39;col2&#39;</span>] <span class="co"># assuming first row in csv is not col names</span></span>
+<span id="cb27-3"><a href="#cb27-3" aria-hidden="true" tabindex="-1"></a>some_dataframe <span class="op">=</span> pd.read_csv(path_to_csv, name<span class="op">=</span>column_names)</span></code></pre></div>
+<h4 id="models">Models</h4>
+<p>example model layers:</p>
+<div class="sourceCode" id="cb28"><pre
+class="sourceCode python"><code class="sourceCode python"><span id="cb28-1"><a href="#cb28-1" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb28-2"><a href="#cb28-2" aria-hidden="true" tabindex="-1"></a>new_model <span class="op">=</span> tf.keras.models.Sequential([</span>
+<span id="cb28-3"><a href="#cb28-3" aria-hidden="true" tabindex="-1"></a>    tf.keras.layers.InputLayer((<span class="va">None</span>, <span class="dv">1</span>)),</span>
+<span id="cb28-4"><a href="#cb28-4" aria-hidden="true" tabindex="-1"></a>    tf.keras.layers.Conv1D(<span class="dv">30</span>,<span class="dv">6</span>,padding<span class="op">=</span><span class="st">&#39;casual&#39;</span>, activation<span class="op">=</span><span class="st">&#39;relu&#39;</span>),</span>
+<span id="cb28-5"><a href="#cb28-5" aria-hidden="true" tabindex="-1"></a>    tf.keras.layers.LSTM(<span class="dv">68</span>),</span>
+<span id="cb28-6"><a href="#cb28-6" aria-hidden="true" tabindex="-1"></a>    tf.keras.layers.Dense(<span class="dv">32</span>, activation<span class="op">=</span><span class="st">&#39;relu&#39;</span>),</span>
+<span id="cb28-7"><a href="#cb28-7" aria-hidden="true" tabindex="-1"></a>    tf.keras.layers.Dense(<span class="dv">16</span>, activation<span class="op">=</span><span class="st">&#39;relu&#39;</span>),</span>
+<span id="cb28-8"><a href="#cb28-8" aria-hidden="true" tabindex="-1"></a>    tf.keras.layers.Dense(<span class="dv">1</span>)</span>
+<span id="cb28-9"><a href="#cb28-9" aria-hidden="true" tabindex="-1"></a>])</span></code></pre></div>
+<h2 id="commands">Commands</h2>
+<p>curl api.ipify.org - return external ip address ## Phoenix -
+Elixir</p>
+<h3 id="recreate-the-env">Recreate the env</h3>
+<p>mix phx.new statmeet</p>
+<p>cd statmeet</p>
+<p>edit config/dev.exs</p>
+<p>mix deps.get</p>
+<p>mix ecto.create</p>
+<p>mix phx.gen.auth Accounts User users</p>
+<p>mix phx.gen.html Markups Note notes contents:text</p>
+<h3 id="adding-a-new-page">Adding a new page</h3>
+<p>Example of adding Hello page</p>
+<h5 id="create-the-route">Create the route</h5>
+<p>lib/<app>/router.ex</p>
+<div class="sourceCode" id="cb29"><pre
+class="sourceCode elixir"><code class="sourceCode elixir"><span id="cb29-1"><a href="#cb29-1" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb29-2"><a href="#cb29-2" aria-hidden="true" tabindex="-1"></a>scope <span class="st">&quot;/&quot;</span>, <span class="cn">AppWeb</span> <span class="kw">do</span></span>
+<span id="cb29-3"><a href="#cb29-3" aria-hidden="true" tabindex="-1"></a><span class="op">...</span></span>
+<span id="cb29-4"><a href="#cb29-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb29-5"><a href="#cb29-5" aria-hidden="true" tabindex="-1"></a>get <span class="st">&quot;/somepath&quot;</span>, <span class="cn">HelloController</span>, <span class="va">:index</span></span>
+<span id="cb29-6"><a href="#cb29-6" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb29-7"><a href="#cb29-7" aria-hidden="true" tabindex="-1"></a><span class="kw">end</span></span></code></pre></div>
+<h4 id="add-a-new-controller">Add a new controller</h4>
+<p>lib/<app>_web/controllers/<app>_controller.ex</p>
+<div class="sourceCode" id="cb30"><pre
+class="sourceCode elixir"><code class="sourceCode elixir"><span id="cb30-1"><a href="#cb30-1" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb30-2"><a href="#cb30-2" aria-hidden="true" tabindex="-1"></a><span class="kw">defmodule</span> <span class="cn">HelloWeb</span><span class="op">.</span><span class="cn">HelloController</span> <span class="kw">do</span></span>
+<span id="cb30-3"><a href="#cb30-3" aria-hidden="true" tabindex="-1"></a>  <span class="im">use</span> <span class="cn">HelloWeb</span>, <span class="va">:controller</span></span>
+<span id="cb30-4"><a href="#cb30-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb30-5"><a href="#cb30-5" aria-hidden="true" tabindex="-1"></a>  <span class="kw">def</span> index<span class="fu">(</span>conn, _params<span class="fu">)</span> <span class="kw">do</span></span>
+<span id="cb30-6"><a href="#cb30-6" aria-hidden="true" tabindex="-1"></a>    render<span class="fu">(</span>conn, <span class="st">&quot;index.html&quot;</span><span class="fu">)</span></span>
+<span id="cb30-7"><a href="#cb30-7" aria-hidden="true" tabindex="-1"></a>  <span class="kw">end</span></span>
+<span id="cb30-8"><a href="#cb30-8" aria-hidden="true" tabindex="-1"></a><span class="kw">end</span></span></code></pre></div>
+<h4 id="add-a-view">Add a view</h4>
+<p>lib/<app>_web/views/<app>_view.ex</p>
+<div class="sourceCode" id="cb31"><pre
+class="sourceCode elixir"><code class="sourceCode elixir"><span id="cb31-1"><a href="#cb31-1" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb31-2"><a href="#cb31-2" aria-hidden="true" tabindex="-1"></a><span class="kw">defmodule</span> <span class="cn">HelloWeb</span><span class="op">.</span><span class="cn">HelloView</span> <span class="kw">do</span></span>
+<span id="cb31-3"><a href="#cb31-3" aria-hidden="true" tabindex="-1"></a>  <span class="im">use</span> <span class="cn">HelloWeb</span>, <span class="va">:view</span></span>
+<span id="cb31-4"><a href="#cb31-4" aria-hidden="true" tabindex="-1"></a><span class="kw">end</span></span></code></pre></div>
+<h4 id="add-a-template">Add a template</h4>
+<p>lib/<app>_web/templates/<app>/index.html.heex</p>
+<div class="sourceCode" id="cb32"><pre
+class="sourceCode elixir"><code class="sourceCode elixir"><span id="cb32-1"><a href="#cb32-1" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb32-2"><a href="#cb32-2" aria-hidden="true" tabindex="-1"></a><span class="op">&lt;</span>section class<span class="op">=</span><span class="st">&quot;phx-hero&quot;</span><span class="op">&gt;</span></span>
+<span id="cb32-3"><a href="#cb32-3" aria-hidden="true" tabindex="-1"></a>  <span class="op">&lt;</span>h2<span class="op">&gt;</span><span class="cn">Hello</span> <span class="cn">World</span>, from <span class="cn">Phoenix</span>!<span class="op">&lt;/</span>h2<span class="op">&gt;</span></span>
+<span id="cb32-4"><a href="#cb32-4" aria-hidden="true" tabindex="-1"></a><span class="op">&lt;/</span>section<span class="op">&gt;</span></span></code></pre></div>
+<h3 id="adding-a-new-schema">Adding a new schema</h3>
+<p>mix phx.gen.schema Markups markups content:text</p>
+<h3 id="adding-formscontext">Adding forms/context</h3>
+<p>mix phx.gen.html Catalog Product products title:string
+description:string price:decimal views:integer</p>
+<h3 id="update-a-model">Update a model</h3>
+<p>mix ecto.gen.migration update_notes</p>
+<p>edit file in priv/repo/migrations/</p>
+<p>mix ecto.migrate ## Elixir</p>
+<p>self()</p>
+<p>spawn_link(self(), fn -&gt; raise “oops” end)</p>
+<p>spawn(…)</p>
+<p>send(pid, {:get, :hello, self()})</p>
+<p>flush()</p>
+<p>{:ok, pid} = Agent.start_link(fn -&gt; %{} end)</p>
+<p>Agent.update(pid, fn map -&gt; Map.put(map, :hello, :world) end)</p>
+<p>Agent.get(pid, fn map -&gt; Map.get(map, :hello) end)</p>
+<p>opts \ [] - optional parameter that will default to empty list ##
+pandas</p>
+<div class="sourceCode" id="cb33"><pre
+class="sourceCode python"><code class="sourceCode python"><span id="cb33-1"><a href="#cb33-1" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb33-2"><a href="#cb33-2" aria-hidden="true" tabindex="-1"></a><span class="co">&quot;&quot;&quot; Cheat sheet &quot;&quot;&quot;</span></span>
+<span id="cb33-3"><a href="#cb33-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb33-4"><a href="#cb33-4" aria-hidden="true" tabindex="-1"></a>some_data <span class="op">=</span> pd.read_csv(some_file_path) </span>
+<span id="cb33-5"><a href="#cb33-5" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb33-6"><a href="#cb33-6" aria-hidden="true" tabindex="-1"></a><span class="co">&quot;&quot;&quot; show cols &quot;&quot;&quot;</span></span>
+<span id="cb33-7"><a href="#cb33-7" aria-hidden="true" tabindex="-1"></a>some_data.columns</span>
+<span id="cb33-8"><a href="#cb33-8" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb33-9"><a href="#cb33-9" aria-hidden="true" tabindex="-1"></a><span class="co">&quot;&quot;&quot; Select a column into a pd series &quot;&quot;&quot;</span></span>
+<span id="cb33-10"><a href="#cb33-10" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb33-11"><a href="#cb33-11" aria-hidden="true" tabindex="-1"></a>some_series <span class="op">=</span> some_data.Price</span>
+<span id="cb33-12"><a href="#cb33-12" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb33-13"><a href="#cb33-13" aria-hidden="true" tabindex="-1"></a><span class="co">&quot;&quot;&quot; Selectinng features, note features assigned to &quot;X&quot; var by convention &quot;&quot;&quot;</span></span>
+<span id="cb33-14"><a href="#cb33-14" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb33-15"><a href="#cb33-15" aria-hidden="true" tabindex="-1"></a>some_features <span class="op">=</span> [<span class="st">&#39;price&#39;</span>, <span class="st">&#39;amount&#39;</span>, <span class="st">&#39;sku&#39;</span>]</span>
+<span id="cb33-16"><a href="#cb33-16" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb33-17"><a href="#cb33-17" aria-hidden="true" tabindex="-1"></a>X <span class="op">=</span> some_data[some_features]</span>
+<span id="cb33-18"><a href="#cb33-18" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb33-19"><a href="#cb33-19" aria-hidden="true" tabindex="-1"></a><span class="co">&quot;&quot;&quot; Get shape notice it is a attribute &quot;&quot;&quot;</span></span>
+<span id="cb33-20"><a href="#cb33-20" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb33-21"><a href="#cb33-21" aria-hidden="true" tabindex="-1"></a>some_df.shape</span>
+<span id="cb33-22"><a href="#cb33-22" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb33-23"><a href="#cb33-23" aria-hidden="true" tabindex="-1"></a><span class="co">&quot;&quot;&quot; Selecting &quot;&quot;&quot;</span></span>
+<span id="cb33-24"><a href="#cb33-24" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb33-25"><a href="#cb33-25" aria-hidden="true" tabindex="-1"></a>some_df.loc[(some_df.some_col <span class="op">==</span> <span class="st">&#39;apples&#39;</span>) <span class="op">&amp;</span> (some_df.another_col <span class="op">==</span> <span class="st">&#39;fuji&#39;</span>)]</span>
+<span id="cb33-26"><a href="#cb33-26" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb33-27"><a href="#cb33-27" aria-hidden="true" tabindex="-1"></a>some_df.loc[(some_df.some_col <span class="op">==</span> <span class="st">&#39;apples&#39;</span>) <span class="op">|</span> (some_df.some_col <span class="op">==</span> <span class="st">&#39;grapes&#39;</span>)]</span>
+<span id="cb33-28"><a href="#cb33-28" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb33-29"><a href="#cb33-29" aria-hidden="true" tabindex="-1"></a>some_df.loc[some_df.some_col.isin([<span class="st">&#39;apples&#39;</span>, <span class="st">&#39;oranges&#39;</span>])</span>
+<span id="cb33-30"><a href="#cb33-30" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb33-31"><a href="#cb33-31" aria-hidden="true" tabindex="-1"></a><span class="st">&quot;&quot;&quot; Mapping map() fun passed to map expects a single value from a Series,</span></span>
+<span id="cb33-32"><a href="#cb33-32" aria-hidden="true" tabindex="-1"></a><span class="st">    returns a new Series. &quot;&quot;&quot;</span></span>
+<span id="cb33-33"><a href="#cb33-33" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb33-34"><a href="#cb33-34" aria-hidden="true" tabindex="-1"></a>some_mean <span class="op">=</span> some_df.some_feature.mean()</span>
+<span id="cb33-35"><a href="#cb33-35" aria-hidden="true" tabindex="-1"></a>some_df.some_feature.<span class="bu">map</span>(<span class="kw">lambda</span> p: p <span class="op">-</span> some_mean)</span>
+<span id="cb33-36"><a href="#cb33-36" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb33-37"><a href="#cb33-37" aria-hidden="true" tabindex="-1"></a><span class="st">&quot;&quot;&quot; Apply apply() - call a fun on each row &quot;&quot;&quot;</span></span>
+<span id="cb33-38"><a href="#cb33-38" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb33-39"><a href="#cb33-39" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> remean_feature(row):</span>
+<span id="cb33-40"><a href="#cb33-40" aria-hidden="true" tabindex="-1"></a>     row.some_feature <span class="op">=</span> row.some_feature <span class="op">-</span> some_mean</span>
+<span id="cb33-41"><a href="#cb33-41" aria-hidden="true" tabindex="-1"></a>     <span class="cf">return</span> row</span>
+<span id="cb33-42"><a href="#cb33-42" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb33-43"><a href="#cb33-43" aria-hidden="true" tabindex="-1"></a>some_df.<span class="bu">apply</span>(remean_feature, axis<span class="op">=</span><span class="st">&#39;columns&#39;</span>)</span>
+<span id="cb33-44"><a href="#cb33-44" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb33-45"><a href="#cb33-45" aria-hidden="true" tabindex="-1"></a><span class="st">&quot;&quot;&quot; Mappings as built-ins &quot;&quot;&quot;</span></span>
+<span id="cb33-46"><a href="#cb33-46" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb33-47"><a href="#cb33-47" aria-hidden="true" tabindex="-1"></a>some_mean <span class="op">=</span> some_df.some_feature.mean()</span>
+<span id="cb33-48"><a href="#cb33-48" aria-hidden="true" tabindex="-1"></a>some_df.some_feature <span class="op">-</span> some_mean</span>
+<span id="cb33-49"><a href="#cb33-49" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb33-50"><a href="#cb33-50" aria-hidden="true" tabindex="-1"></a><span class="st">&quot;&quot;&quot; Combine info &quot;&quot;&quot;</span></span>
+<span id="cb33-51"><a href="#cb33-51" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb33-52"><a href="#cb33-52" aria-hidden="true" tabindex="-1"></a>some_df.some_feature_1 <span class="op">+</span> <span class="st">&quot; - &quot;</span> <span class="op">+</span> some_df.some_feature_2</span>
+<span id="cb33-53"><a href="#cb33-53" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb33-54"><a href="#cb33-54" aria-hidden="true" tabindex="-1"></a><span class="st">&quot;&quot;&quot; Sorting and grouping &quot;&quot;&quot;</span></span>
+<span id="cb33-55"><a href="#cb33-55" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb33-56"><a href="#cb33-56" aria-hidden="true" tabindex="-1"></a>some_df.groupby(<span class="st">&#39;feature&#39;</span>)</span>
+<span id="cb33-57"><a href="#cb33-57" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb33-58"><a href="#cb33-58" aria-hidden="true" tabindex="-1"></a>some_df.groupby(<span class="st">&#39;feature&#39;</span>).another_feature.<span class="bu">min</span></span>
+<span id="cb33-59"><a href="#cb33-59" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb33-60"><a href="#cb33-60" aria-hidden="true" tabindex="-1"></a>some_df.grouby([<span class="st">&#39;feature_a&#39;</span>,<span class="st">&#39;feature_b&#39;</span>]).<span class="bu">apply</span>(<span class="kw">lambda</span> df: df.loc[df.feature_c.idxmax()])</span>
+<span id="cb33-61"><a href="#cb33-61" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb33-62"><a href="#cb33-62" aria-hidden="true" tabindex="-1"></a>some_df.groupby([<span class="st">&#39;feature_a&#39;</span>]).feature_b.agg([<span class="bu">len</span>,<span class="bu">min</span>,<span class="bu">max</span>])</span>
+<span id="cb33-63"><a href="#cb33-63" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb33-64"><a href="#cb33-64" aria-hidden="true" tabindex="-1"></a><span class="st">&quot;&quot;&quot; Convert Pandas datatype &quot;&quot;&quot;</span></span>
+<span id="cb33-65"><a href="#cb33-65" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb33-66"><a href="#cb33-66" aria-hidden="true" tabindex="-1"></a>some_df.some_feature.astype(<span class="st">&#39;float64&#39;</span>)</span>
+<span id="cb33-67"><a href="#cb33-67" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb33-68"><a href="#cb33-68" aria-hidden="true" tabindex="-1"></a><span class="st">&quot;&quot;&quot; Select NaN entries &quot;&quot;&quot;</span></span>
+<span id="cb33-69"><a href="#cb33-69" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb33-70"><a href="#cb33-70" aria-hidden="true" tabindex="-1"></a>some_df[pd.isnull(some_df.some_feature)]</span>
+<span id="cb33-71"><a href="#cb33-71" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb33-72"><a href="#cb33-72" aria-hidden="true" tabindex="-1"></a><span class="st">&quot;&quot;&quot; Filling in Nan &quot;&quot;&quot;</span></span>
+<span id="cb33-73"><a href="#cb33-73" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb33-74"><a href="#cb33-74" aria-hidden="true" tabindex="-1"></a>some_df.some_feature.fillna(<span class="st">&quot;unknown&quot;</span>)</span>
+<span id="cb33-75"><a href="#cb33-75" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb33-76"><a href="#cb33-76" aria-hidden="true" tabindex="-1"></a><span class="st">&quot;&quot;&quot; Rename a column &quot;&quot;&quot;</span></span>
+<span id="cb33-77"><a href="#cb33-77" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb33-78"><a href="#cb33-78" aria-hidden="true" tabindex="-1"></a>some_df.rename(columns<span class="op">=</span>{<span class="st">&#39;from_name&#39;</span>: <span class="st">&#39;to_name&#39;</span>})</span>
+<span id="cb33-79"><a href="#cb33-79" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb33-80"><a href="#cb33-80" aria-hidden="true" tabindex="-1"></a><span class="st">&quot;&quot;&quot; Joining dataframes &quot;&quot;&quot;</span></span>
+<span id="cb33-81"><a href="#cb33-81" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb33-82"><a href="#cb33-82" aria-hidden="true" tabindex="-1"></a>pd.concat([some_df_a, some_df_b])</span>
+<span id="cb33-83"><a href="#cb33-83" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb33-84"><a href="#cb33-84" aria-hidden="true" tabindex="-1"></a>left_df <span class="op">=</span> some_df_a.set_index([<span class="st">&#39;title&#39;</span>, <span class="st">&#39;date&#39;</span>])</span>
+<span id="cb33-85"><a href="#cb33-85" aria-hidden="true" tabindex="-1"></a>right_df <span class="op">=</span> some_df_b.set_index([<span class="st">&#39;title&#39;</span>, <span class="st">&#39;date&#39;</span>])</span>
+<span id="cb33-86"><a href="#cb33-86" aria-hidden="true" tabindex="-1"></a>left_df.join(right_df, lsuffix<span class="op">=</span><span class="st">&#39;_l&#39;</span>, rsuffix<span class="op">=</span><span class="st">&#39;_r&#39;</span>)</span>
+<span id="cb33-87"><a href="#cb33-87" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb33-88"><a href="#cb33-88" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb33-89"><a href="#cb33-89" aria-hidden="true" tabindex="-1"></a><span class="st">&quot;&quot;&quot; Misc useful funs &quot;&quot;&quot;</span></span>
+<span id="cb33-90"><a href="#cb33-90" aria-hidden="true" tabindex="-1"></a>X <span class="op">=</span> pd.get_dummies(train_data[features])</span>
+<span id="cb33-91"><a href="#cb33-91" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb33-92"><a href="#cb33-92" aria-hidden="true" tabindex="-1"></a>.notnull()</span>
+<span id="cb33-93"><a href="#cb33-93" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb33-94"><a href="#cb33-94" aria-hidden="true" tabindex="-1"></a>pd.set_option(<span class="st">&#39;max_rows&#39;</span>, <span class="dv">5</span>)</span>
+<span id="cb33-95"><a href="#cb33-95" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb33-96"><a href="#cb33-96" aria-hidden="true" tabindex="-1"></a>X.describe()</span>
+<span id="cb33-97"><a href="#cb33-97" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb33-98"><a href="#cb33-98" aria-hidden="true" tabindex="-1"></a>X.head()</span>
+<span id="cb33-99"><a href="#cb33-99" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb33-100"><a href="#cb33-100" aria-hidden="true" tabindex="-1"></a>some_df.some_feature.mean()</span>
+<span id="cb33-101"><a href="#cb33-101" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb33-102"><a href="#cb33-102" aria-hidden="true" tabindex="-1"></a>some_df.some_feature.unique()</span>
+<span id="cb33-103"><a href="#cb33-103" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb33-104"><a href="#cb33-104" aria-hidden="true" tabindex="-1"></a>some_df.some_feature.value_counts()</span>
+<span id="cb33-105"><a href="#cb33-105" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb33-106"><a href="#cb33-106" aria-hidden="true" tabindex="-1"></a>some_df.some_feature.dtype</span>
+<span id="cb33-107"><a href="#cb33-107" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb33-108"><a href="#cb33-108" aria-hidden="true" tabindex="-1"></a>some_df.dtypes</span></code></pre></div>
+<h2 id="scikit">Scikit</h2>
+<div class="sourceCode" id="cb34"><pre
+class="sourceCode python"><code class="sourceCode python"><span id="cb34-1"><a href="#cb34-1" aria-hidden="true" tabindex="-1"></a><span class="co">&quot;&quot;&quot; Create a decision tree using scikit &quot;&quot;&quot;</span></span>
+<span id="cb34-2"><a href="#cb34-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb34-3"><a href="#cb34-3" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> sklearn.tree <span class="im">import</span> DecisionTreeRegressor</span>
+<span id="cb34-4"><a href="#cb34-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb34-5"><a href="#cb34-5" aria-hidden="true" tabindex="-1"></a>some_model <span class="op">=</span> DecisionTreeRegressor(random_state<span class="op">=</span><span class="dv">1</span>)</span>
+<span id="cb34-6"><a href="#cb34-6" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb34-7"><a href="#cb34-7" aria-hidden="true" tabindex="-1"></a>some_model.fit(X,y)</span>
+<span id="cb34-8"><a href="#cb34-8" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb34-9"><a href="#cb34-9" aria-hidden="true" tabindex="-1"></a>some_model.predict(x)</span>
+<span id="cb34-10"><a href="#cb34-10" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb34-11"><a href="#cb34-11" aria-hidden="true" tabindex="-1"></a><span class="co">&quot;&quot;&quot; Scikit calc MAE &quot;&quot;&quot;</span></span>
+<span id="cb34-12"><a href="#cb34-12" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb34-13"><a href="#cb34-13" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> sklearn.metrics <span class="im">import</span> mean_absolute_error</span>
+<span id="cb34-14"><a href="#cb34-14" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb34-15"><a href="#cb34-15" aria-hidden="true" tabindex="-1"></a>predict <span class="op">=</span> some_model.predict(X)</span>
+<span id="cb34-16"><a href="#cb34-16" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb34-17"><a href="#cb34-17" aria-hidden="true" tabindex="-1"></a>mean_absolute_error(y, predict)</span>
+<span id="cb34-18"><a href="#cb34-18" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb34-19"><a href="#cb34-19" aria-hidden="true" tabindex="-1"></a><span class="co">&quot;&quot;&quot; scikit create a test split &quot;&quot;&quot;</span></span>
+<span id="cb34-20"><a href="#cb34-20" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb34-21"><a href="#cb34-21" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> sklearn.model_selection <span class="im">import</span> train_test_split</span>
+<span id="cb34-22"><a href="#cb34-22" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb34-23"><a href="#cb34-23" aria-hidden="true" tabindex="-1"></a>train_X, val_X, train_y, val_y <span class="op">=</span> train_test_split(X, y, random_state <span class="op">=</span> <span class="dv">0</span>)</span>
+<span id="cb34-24"><a href="#cb34-24" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb34-25"><a href="#cb34-25" aria-hidden="true" tabindex="-1"></a><span class="co">&quot;&quot;&quot; Then define some model on the train_X and train_y data &quot;&quot;&quot;</span></span>
+<span id="cb34-26"><a href="#cb34-26" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb34-27"><a href="#cb34-27" aria-hidden="true" tabindex="-1"></a>mean_absolute_error(val_y, some_predictions)</span>
+<span id="cb34-28"><a href="#cb34-28" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb34-29"><a href="#cb34-29" aria-hidden="true" tabindex="-1"></a><span class="co">&quot;&quot;&quot; Random Forests &quot;&quot;&quot;</span></span>
+<span id="cb34-30"><a href="#cb34-30" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb34-31"><a href="#cb34-31" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> sklearn.ensemble <span class="im">import</span> RandomForestRegressor</span>
+<span id="cb34-32"><a href="#cb34-32" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb34-33"><a href="#cb34-33" aria-hidden="true" tabindex="-1"></a>forest_model <span class="op">=</span> RandomForestRegressor(random_state<span class="op">=</span><span class="dv">1</span>)</span>
+<span id="cb34-34"><a href="#cb34-34" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb34-35"><a href="#cb34-35" aria-hidden="true" tabindex="-1"></a>forest_model.fit(train_X, train_y)</span>
+<span id="cb34-36"><a href="#cb34-36" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb34-37"><a href="#cb34-37" aria-hidden="true" tabindex="-1"></a>some_predictions<span class="op">=</span> forest_model.predict(val_X)</span>
+<span id="cb34-38"><a href="#cb34-38" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb34-39"><a href="#cb34-39" aria-hidden="true" tabindex="-1"></a><span class="co">&quot;&quot;&quot; Imputation &quot;&quot;&quot;</span></span>
+<span id="cb34-40"><a href="#cb34-40" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb34-41"><a href="#cb34-41" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> sklearn.impute <span class="im">import</span> SimpleImputer</span>
+<span id="cb34-42"><a href="#cb34-42" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb34-43"><a href="#cb34-43" aria-hidden="true" tabindex="-1"></a>some_imputer <span class="op">=</span> SimpleImputer()</span>
+<span id="cb34-44"><a href="#cb34-44" aria-hidden="true" tabindex="-1"></a>imputed_X_train <span class="op">=</span> pd.DataFrame(some_imputer.fit_transform(X_train))</span>
+<span id="cb34-45"><a href="#cb34-45" aria-hidden="true" tabindex="-1"></a>imputed_X_valid <span class="op">=</span> pd.DataFrame(some_imputer.transform(X_valid))</span>
+<span id="cb34-46"><a href="#cb34-46" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb34-47"><a href="#cb34-47" aria-hidden="true" tabindex="-1"></a><span class="co">&quot;&quot;&quot; Imputation removed column names; put them back &quot;&quot;&quot;</span></span>
+<span id="cb34-48"><a href="#cb34-48" aria-hidden="true" tabindex="-1"></a>imputed_X_train.columns <span class="op">=</span> X_train.columns</span>
+<span id="cb34-49"><a href="#cb34-49" aria-hidden="true" tabindex="-1"></a>imputed_X_valid.columns <span class="op">=</span> X_valid.columns</span>
+<span id="cb34-50"><a href="#cb34-50" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb34-51"><a href="#cb34-51" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="st">&quot;MAE from Approach 2 (Imputation):&quot;</span>)</span>
+<span id="cb34-52"><a href="#cb34-52" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(score_dataset(imputed_X_train, imputed_X_valid, y_train, y_valid))</span>
+<span id="cb34-53"><a href="#cb34-53" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb34-54"><a href="#cb34-54" aria-hidden="true" tabindex="-1"></a><span class="co">&quot;&quot;&quot; Categorical Variables one hot is usiually best, from kaggle &quot;&quot;&quot;</span></span>
+<span id="cb34-55"><a href="#cb34-55" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb34-56"><a href="#cb34-56" aria-hidden="true" tabindex="-1"></a>s <span class="op">=</span> (X_train.dtypes <span class="op">==</span> <span class="st">&#39;object&#39;</span>)</span>
+<span id="cb34-57"><a href="#cb34-57" aria-hidden="true" tabindex="-1"></a>object_cols <span class="op">=</span> <span class="bu">list</span>(s[s].index)</span>
+<span id="cb34-58"><a href="#cb34-58" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb34-59"><a href="#cb34-59" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> sklearn.preprocessing <span class="im">import</span> OneHotEncoder</span>
+<span id="cb34-60"><a href="#cb34-60" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb34-61"><a href="#cb34-61" aria-hidden="true" tabindex="-1"></a><span class="co">&quot;&quot;&quot; Apply one-hot encoder to each column with categorical data &quot;&quot;&quot;</span></span>
+<span id="cb34-62"><a href="#cb34-62" aria-hidden="true" tabindex="-1"></a>OH_encoder <span class="op">=</span> OneHotEncoder(handle_unknown<span class="op">=</span><span class="st">&#39;ignore&#39;</span>, sparse<span class="op">=</span><span class="va">False</span>)</span>
+<span id="cb34-63"><a href="#cb34-63" aria-hidden="true" tabindex="-1"></a>OH_cols_train <span class="op">=</span> pd.DataFrame(OH_encoder.fit_transform(X_train[object_cols]))</span>
+<span id="cb34-64"><a href="#cb34-64" aria-hidden="true" tabindex="-1"></a>OH_cols_valid <span class="op">=</span> pd.DataFrame(OH_encoder.transform(X_valid[object_cols]))</span>
+<span id="cb34-65"><a href="#cb34-65" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb34-66"><a href="#cb34-66" aria-hidden="true" tabindex="-1"></a><span class="co">&quot;&quot;&quot; One-hot encoding removed index; put it back &quot;&quot;&quot;</span></span>
+<span id="cb34-67"><a href="#cb34-67" aria-hidden="true" tabindex="-1"></a>OH_cols_train.index <span class="op">=</span> X_train.index</span>
+<span id="cb34-68"><a href="#cb34-68" aria-hidden="true" tabindex="-1"></a>OH_cols_valid.index <span class="op">=</span> X_valid.index</span>
+<span id="cb34-69"><a href="#cb34-69" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb34-70"><a href="#cb34-70" aria-hidden="true" tabindex="-1"></a><span class="co">&quot;&quot;&quot; Remove categorical columns (will replace with one-hot encoding) &quot;&quot;&quot;</span></span>
+<span id="cb34-71"><a href="#cb34-71" aria-hidden="true" tabindex="-1"></a>num_X_train <span class="op">=</span> X_train.drop(object_cols, axis<span class="op">=</span><span class="dv">1</span>)</span>
+<span id="cb34-72"><a href="#cb34-72" aria-hidden="true" tabindex="-1"></a>num_X_valid <span class="op">=</span> X_valid.drop(object_cols, axis<span class="op">=</span><span class="dv">1</span>)</span>
+<span id="cb34-73"><a href="#cb34-73" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb34-74"><a href="#cb34-74" aria-hidden="true" tabindex="-1"></a><span class="co">&quot;&quot;&quot; Add one-hot encoded columns to numerical features &quot;&quot;&quot;</span></span>
+<span id="cb34-75"><a href="#cb34-75" aria-hidden="true" tabindex="-1"></a>OH_X_train <span class="op">=</span> pd.concat([num_X_train, OH_cols_train], axis<span class="op">=</span><span class="dv">1</span>)</span>
+<span id="cb34-76"><a href="#cb34-76" aria-hidden="true" tabindex="-1"></a>OH_X_valid <span class="op">=</span> pd.concat([num_X_valid, OH_cols_valid], axis<span class="op">=</span><span class="dv">1</span>)</span>
+<span id="cb34-77"><a href="#cb34-77" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb34-78"><a href="#cb34-78" aria-hidden="true" tabindex="-1"></a><span class="co">&quot;&quot;&quot; Ensure all columns have string type &quot;&quot;&quot;</span></span>
+<span id="cb34-79"><a href="#cb34-79" aria-hidden="true" tabindex="-1"></a>OH_X_train.columns <span class="op">=</span> OH_X_train.columns.astype(<span class="bu">str</span>)</span>
+<span id="cb34-80"><a href="#cb34-80" aria-hidden="true" tabindex="-1"></a>OH_X_valid.columns <span class="op">=</span> OH_X_valid.columns.astype(<span class="bu">str</span>)</span>
+<span id="cb34-81"><a href="#cb34-81" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb34-82"><a href="#cb34-82" aria-hidden="true" tabindex="-1"></a><span class="co">&quot;&quot;&quot; sklearn pipelines &quot;&quot;&quot;</span></span>
+<span id="cb34-83"><a href="#cb34-83" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb34-84"><a href="#cb34-84" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> sklearn.pipeline <span class="im">import</span> Pipeline</span>
+<span id="cb34-85"><a href="#cb34-85" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb34-86"><a href="#cb34-86" aria-hidden="true" tabindex="-1"></a>categorical_transformer <span class="op">=</span> Pipeline(steps<span class="op">=</span>[</span>
+<span id="cb34-87"><a href="#cb34-87" aria-hidden="true" tabindex="-1"></a>   (<span class="st">&#39;imputer&#39;</span>, SimpleImputer(strategy<span class="op">=</span><span class="st">&#39;most_frequent&#39;</span>)),</span>
+<span id="cb34-88"><a href="#cb34-88" aria-hidden="true" tabindex="-1"></a>    (<span class="st">&#39;onehot&#39;</span>, OneHotEncoder(handle_unknown<span class="op">=</span><span class="st">&#39;ignore&#39;</span>))</span>
+<span id="cb34-89"><a href="#cb34-89" aria-hidden="true" tabindex="-1"></a>])</span>
+<span id="cb34-90"><a href="#cb34-90" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb34-91"><a href="#cb34-91" aria-hidden="true" tabindex="-1"></a><span class="co">&quot;&quot;&quot; sklearn cross-validation &quot;&quot;&quot;</span></span>
+<span id="cb34-92"><a href="#cb34-92" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb34-93"><a href="#cb34-93" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> sklearn.model_selection <span class="im">import</span> cross_val_score</span>
+<span id="cb34-94"><a href="#cb34-94" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb34-95"><a href="#cb34-95" aria-hidden="true" tabindex="-1"></a>scores <span class="op">=</span> <span class="op">-</span><span class="dv">1</span> <span class="op">*</span> cross_val_score(my_pipeline, X, y,</span>
+<span id="cb34-96"><a href="#cb34-96" aria-hidden="true" tabindex="-1"></a>                              cv<span class="op">=</span><span class="dv">5</span>,</span>
+<span id="cb34-97"><a href="#cb34-97" aria-hidden="true" tabindex="-1"></a>                              scoring<span class="op">=</span><span class="st">&#39;neg_mean_absolute_error&#39;</span>)</span>
+<span id="cb34-98"><a href="#cb34-98" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb34-99"><a href="#cb34-99" aria-hidden="true" tabindex="-1"></a><span class="co">&quot;&quot;&quot; </span></span>
+<span id="cb34-100"><a href="#cb34-100" aria-hidden="true" tabindex="-1"></a><span class="co">XGBoost  rules of thumb: </span></span>
+<span id="cb34-101"><a href="#cb34-101" aria-hidden="true" tabindex="-1"></a><span class="co">- n_estimators usually between 100 - 1000</span></span>
+<span id="cb34-102"><a href="#cb34-102" aria-hidden="true" tabindex="-1"></a><span class="co">- In general, a small learning rate and large number of estimators </span></span>
+<span id="cb34-103"><a href="#cb34-103" aria-hidden="true" tabindex="-1"></a><span class="co">will yield more accurate XGBoost models</span></span>
+<span id="cb34-104"><a href="#cb34-104" aria-hidden="true" tabindex="-1"></a><span class="co">&quot;&quot;&quot;</span></span>
+<span id="cb34-105"><a href="#cb34-105" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb34-106"><a href="#cb34-106" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> xgboost <span class="im">import</span> XGBRegressor</span>
+<span id="cb34-107"><a href="#cb34-107" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb34-108"><a href="#cb34-108" aria-hidden="true" tabindex="-1"></a>my_model <span class="op">=</span> XGBRegressor()</span>
+<span id="cb34-109"><a href="#cb34-109" aria-hidden="true" tabindex="-1"></a>my_model.fit(X_train, y_train)</span>
+<span id="cb34-110"><a href="#cb34-110" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb34-111"><a href="#cb34-111" aria-hidden="true" tabindex="-1"></a>my_model <span class="op">=</span> XGBRegressor(n_estimators<span class="op">=</span><span class="dv">500</span>)</span>
+<span id="cb34-112"><a href="#cb34-112" aria-hidden="true" tabindex="-1"></a>my_model.fit(X_train, y_train, </span>
+<span id="cb34-113"><a href="#cb34-113" aria-hidden="true" tabindex="-1"></a>             early_stopping_rounds<span class="op">=</span><span class="dv">5</span>, </span>
+<span id="cb34-114"><a href="#cb34-114" aria-hidden="true" tabindex="-1"></a>             eval_set<span class="op">=</span>[(X_valid, y_valid)],</span>
+<span id="cb34-115"><a href="#cb34-115" aria-hidden="true" tabindex="-1"></a>             verbose<span class="op">=</span><span class="va">False</span>)</span></code></pre></div>
+<h2 id="phoenix">Phoenix</h2>
+<h3 id="plugs">Plugs</h3>
+<p>module plugs must have two funcs: init, call</p>
+<div class="sourceCode" id="cb35"><pre
+class="sourceCode elixir"><code class="sourceCode elixir"><span id="cb35-1"><a href="#cb35-1" aria-hidden="true" tabindex="-1"></a><span class="kw">defmodule</span> <span class="cn">NothingPlug</span> <span class="kw">do</span></span>
+<span id="cb35-2"><a href="#cb35-2" aria-hidden="true" tabindex="-1"></a>    <span class="kw">def</span> init<span class="fu">(</span>opts<span class="fu">)</span> <span class="kw">do</span></span>
+<span id="cb35-3"><a href="#cb35-3" aria-hidden="true" tabindex="-1"></a>        opts</span>
+<span id="cb35-4"><a href="#cb35-4" aria-hidden="true" tabindex="-1"></a>    <span class="kw">end</span></span>
+<span id="cb35-5"><a href="#cb35-5" aria-hidden="true" tabindex="-1"></a>    <span class="kw">def</span> call<span class="fu">(</span>conn, _opts<span class="fu">)</span> <span class="kw">do</span></span>
+<span id="cb35-6"><a href="#cb35-6" aria-hidden="true" tabindex="-1"></a>        conn</span>
+<span id="cb35-7"><a href="#cb35-7" aria-hidden="true" tabindex="-1"></a>    <span class="kw">end</span></span>
+<span id="cb35-8"><a href="#cb35-8" aria-hidden="true" tabindex="-1"></a><span class="kw">end</span></span></code></pre></div>
+<h2 id="golang">Golang</h2>
+<div class="sourceCode" id="cb36"><pre
+class="sourceCode bash"><code class="sourceCode bash"><span id="cb36-1"><a href="#cb36-1" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb36-2"><a href="#cb36-2" aria-hidden="true" tabindex="-1"></a><span class="ex">go</span> get <span class="at">-u</span> ./...</span></code></pre></div>
+<h2 id="oauth">Oauth</h2>
+<p>https://www.oauth.com/</p>
+<p>Used for integrating applictions with other services.</p>
+<p>Important ! register redirect url’s immediately.</p>
+<p>Redirection attack where a access token can be interpreted by an
+attacker.</p>
+<p>Dont register multiple redirect url’s to compensate for starting from
+multiple states in the app. Instead use the state parameter. ##
+React</p>
+<p>https://scrimba.com/learn/learnreact</p>
+<p>global var ReactDOM</p>
+<div class="sourceCode" id="cb37"><pre
+class="sourceCode javascript"><code class="sourceCode javascript"><span id="cb37-1"><a href="#cb37-1" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb37-2"><a href="#cb37-2" aria-hidden="true" tabindex="-1"></a>ReactDOM<span class="op">.</span><span class="fu">render</span>(<span class="op">&lt;</span>h1<span class="op">&gt;</span>Hello<span class="op">&lt;/</span>h1<span class="op">&gt;,</span> <span class="bu">document</span><span class="op">.</span><span class="fu">getElementById</span>(<span class="st">&quot;root&quot;</span>))</span></code></pre></div>
+<h2 id="components">Components</h2>
+<p>All React components must act like pure functions with respect to
+their props.</p>
+<p>Pascal case component, not camel case</p>
+<p>Wrap it in angle brackets in ReactDOM.render()</p>
+<p>Components can have parent child relationship</p>
+<div class="sourceCode" id="cb38"><pre
+class="sourceCode javascript"><code class="sourceCode javascript"><span id="cb38-1"><a href="#cb38-1" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb38-2"><a href="#cb38-2" aria-hidden="true" tabindex="-1"></a><span class="kw">function</span> <span class="fu">Navbar</span>() {</span>
+<span id="cb38-3"><a href="#cb38-3" aria-hidden="true" tabindex="-1"></a>    <span class="cf">return</span> (</span>
+<span id="cb38-4"><a href="#cb38-4" aria-hidden="true" tabindex="-1"></a>       <span class="op">&lt;</span>div<span class="op">&gt;&lt;/</span>div<span class="op">&gt;</span> </span>
+<span id="cb38-5"><a href="#cb38-5" aria-hidden="true" tabindex="-1"></a>    )</span>
+<span id="cb38-6"><a href="#cb38-6" aria-hidden="true" tabindex="-1"></a>}</span>
+<span id="cb38-7"><a href="#cb38-7" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb38-8"><a href="#cb38-8" aria-hidden="true" tabindex="-1"></a><span class="kw">function</span> <span class="fu">MainContent</span>() {</span>
+<span id="cb38-9"><a href="#cb38-9" aria-hidden="true" tabindex="-1"></a>    <span class="cf">return</span> (</span>
+<span id="cb38-10"><a href="#cb38-10" aria-hidden="true" tabindex="-1"></a>        <span class="op">&lt;</span>div<span class="op">&gt;&lt;/</span>div<span class="op">&gt;</span></span>
+<span id="cb38-11"><a href="#cb38-11" aria-hidden="true" tabindex="-1"></a>    )</span>
+<span id="cb38-12"><a href="#cb38-12" aria-hidden="true" tabindex="-1"></a>}</span>
+<span id="cb38-13"><a href="#cb38-13" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb38-14"><a href="#cb38-14" aria-hidden="true" tabindex="-1"></a>ReactDOM<span class="op">.</span><span class="fu">render</span>(</span>
+<span id="cb38-15"><a href="#cb38-15" aria-hidden="true" tabindex="-1"></a>    <span class="op">&lt;</span>div<span class="op">&gt;</span></span>
+<span id="cb38-16"><a href="#cb38-16" aria-hidden="true" tabindex="-1"></a>        <span class="op">&lt;</span>Navbar <span class="op">/&gt;</span></span>
+<span id="cb38-17"><a href="#cb38-17" aria-hidden="true" tabindex="-1"></a>        <span class="op">&lt;</span>MainContent <span class="op">/&gt;</span></span>
+<span id="cb38-18"><a href="#cb38-18" aria-hidden="true" tabindex="-1"></a>    <span class="op">&lt;/</span>div<span class="op">&gt;,</span></span>
+<span id="cb38-19"><a href="#cb38-19" aria-hidden="true" tabindex="-1"></a>    <span class="bu">document</span><span class="op">.</span><span class="fu">getElementById</span>(<span class="st">&quot;root&quot;</span>)</span>
+<span id="cb38-20"><a href="#cb38-20" aria-hidden="true" tabindex="-1"></a>)</span>
+<span id="cb38-21"><a href="#cb38-21" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb38-22"><a href="#cb38-22" aria-hidden="true" tabindex="-1"></a></span></code></pre></div>
+<h2 id="jsx">JSX</h2>
+<p>Like html with some differences.</p>
+<pre><code>html =&gt; JSX 
+
+class =&gt; className</code></pre>
+<h2 id="organization">organization</h2>
+<p>create a react project</p>
+<div class="sourceCode" id="cb40"><pre
+class="sourceCode javascript"><code class="sourceCode javascript"><span id="cb40-1"><a href="#cb40-1" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb40-2"><a href="#cb40-2" aria-hidden="true" tabindex="-1"></a>npx create<span class="op">-</span>react<span class="op">-</span>app hello</span></code></pre></div>
+<p>add a router</p>
+<div class="sourceCode" id="cb41"><pre
+class="sourceCode bash"><code class="sourceCode bash"><span id="cb41-1"><a href="#cb41-1" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb41-2"><a href="#cb41-2" aria-hidden="true" tabindex="-1"></a><span class="ex">npm</span> install react-router-dom@6</span></code></pre></div>
+<p>install material ui: https://mui.com/getting-started/installation/ ##
+Props</p>
+<p>Use mustache syntax</p>
+<div class="sourceCode" id="cb42"><pre
+class="sourceCode javascript"><code class="sourceCode javascript"><span id="cb42-1"><a href="#cb42-1" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb42-2"><a href="#cb42-2" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> React <span class="im">from</span> <span class="st">&quot;react&quot;</span></span>
+<span id="cb42-3"><a href="#cb42-3" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> ReactDOM <span class="im">from</span> <span class="st">&quot;react-dom&quot;</span></span>
+<span id="cb42-4"><a href="#cb42-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb42-5"><a href="#cb42-5" aria-hidden="true" tabindex="-1"></a><span class="kw">function</span> <span class="fu">App</span>() {</span>
+<span id="cb42-6"><a href="#cb42-6" aria-hidden="true" tabindex="-1"></a>    <span class="kw">const</span> userName <span class="op">=</span> <span class="st">&quot;me&quot;</span></span>
+<span id="cb42-7"><a href="#cb42-7" aria-hidden="true" tabindex="-1"></a>    </span>
+<span id="cb42-8"><a href="#cb42-8" aria-hidden="true" tabindex="-1"></a>    <span class="cf">return</span> (</span>
+<span id="cb42-9"><a href="#cb42-9" aria-hidden="true" tabindex="-1"></a>        <span class="op">&lt;</span>h1<span class="op">&gt;</span>Hello {userName} <span class="op">!&lt;/</span>h1<span class="op">&gt;</span></span>
+<span id="cb42-10"><a href="#cb42-10" aria-hidden="true" tabindex="-1"></a>    )</span>
+<span id="cb42-11"><a href="#cb42-11" aria-hidden="true" tabindex="-1"></a>}</span>
+<span id="cb42-12"><a href="#cb42-12" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb42-13"><a href="#cb42-13" aria-hidden="true" tabindex="-1"></a>ReactDOM<span class="op">.</span><span class="fu">render</span>(<span class="op">&lt;</span>App <span class="op">/&gt;,</span> <span class="bu">document</span><span class="op">.</span><span class="fu">getElementById</span>(<span class="st">&quot;root&quot;</span>))</span></code></pre></div>
+<pre><code>
+// Somewhat bogus example
+
+export default function Contact(props) {
+    return (
+        &lt;div className=&quot;contact-card&quot;&gt;
+            &lt;img src={props.image}/&gt;
+            &lt;h3&gt;{props.name}&lt;/h3&gt;
+            &lt;div className=&quot;info-group&quot;&gt;
+                &lt;p&gt;{props.phone}&lt;/p&gt;
+            &lt;/div&gt;
+            &lt;div className=&quot;info-group&quot;&gt;
+                &lt;img src=&quot;./images/mail-icon.png&quot; /&gt;
+                &lt;p&gt;{props.email}&lt;/p&gt;
+            &lt;/div&gt;
+        &lt;/div&gt;
+    )
+}
+
+function App() {
+    return (
+        &lt;div className=&quot;contacts&quot;&gt;
+            &lt;Contact 
+                image=&quot;./images/mr-whiskerson.png&quot; 
+                name=&quot;Mr. Whiskerson&quot;
+                phone=&quot;(212) 555-1234&quot;
+                email=&quot;mr.whiskaz@catnap.meow&quot;
+            /&gt;
+            &lt;Contact 
+                img=&quot;./images/fluffykins.png&quot;
+                name=&quot;Fluffykins&quot;
+                phone=&quot;(212) 555-2345&quot;
+                email=&quot;fluff@me.com&quot;
+            /&gt;
+        &lt;/div&gt;
+    )
+}
+</code></pre>
+<h2 id="props-and-arrays">Props and arrays</h2>
+<div class="sourceCode" id="cb44"><pre
+class="sourceCode javascript"><code class="sourceCode javascript"><span id="cb44-1"><a href="#cb44-1" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb44-2"><a href="#cb44-2" aria-hidden="true" tabindex="-1"></a><span class="co">// contrived example from scrimba</span></span>
+<span id="cb44-3"><a href="#cb44-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb44-4"><a href="#cb44-4" aria-hidden="true" tabindex="-1"></a>jokesData <span class="op">=</span> [</span>
+<span id="cb44-5"><a href="#cb44-5" aria-hidden="true" tabindex="-1"></a>    {</span>
+<span id="cb44-6"><a href="#cb44-6" aria-hidden="true" tabindex="-1"></a>        <span class="dt">setup</span><span class="op">:</span> <span class="st">&quot;I got my daughter a fridge for her birthday.&quot;</span><span class="op">,</span></span>
+<span id="cb44-7"><a href="#cb44-7" aria-hidden="true" tabindex="-1"></a>        <span class="dt">punchline</span><span class="op">:</span> <span class="st">&quot;I can&#39;t wait to see her face light up when she opens it.&quot;</span></span>
+<span id="cb44-8"><a href="#cb44-8" aria-hidden="true" tabindex="-1"></a>    }<span class="op">,</span></span>
+<span id="cb44-9"><a href="#cb44-9" aria-hidden="true" tabindex="-1"></a>    {</span>
+<span id="cb44-10"><a href="#cb44-10" aria-hidden="true" tabindex="-1"></a>        <span class="dt">setup</span><span class="op">:</span> <span class="st">&quot;How did the hacker escape the police?&quot;</span><span class="op">,</span></span>
+<span id="cb44-11"><a href="#cb44-11" aria-hidden="true" tabindex="-1"></a>        <span class="dt">punchline</span><span class="op">:</span> <span class="st">&quot;He just ransomware!&quot;</span></span>
+<span id="cb44-12"><a href="#cb44-12" aria-hidden="true" tabindex="-1"></a>    }</span>
+<span id="cb44-13"><a href="#cb44-13" aria-hidden="true" tabindex="-1"></a>]</span>
+<span id="cb44-14"><a href="#cb44-14" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb44-15"><a href="#cb44-15" aria-hidden="true" tabindex="-1"></a><span class="im">export</span> <span class="im">default</span> <span class="kw">function</span> <span class="fu">Joke</span>(props) {</span>
+<span id="cb44-16"><a href="#cb44-16" aria-hidden="true" tabindex="-1"></a>    <span class="cf">return</span> (</span>
+<span id="cb44-17"><a href="#cb44-17" aria-hidden="true" tabindex="-1"></a>        <span class="op">&lt;</span>div<span class="op">&gt;</span></span>
+<span id="cb44-18"><a href="#cb44-18" aria-hidden="true" tabindex="-1"></a>            {props<span class="op">.</span><span class="at">setup</span> <span class="op">&amp;&amp;</span> <span class="op">&lt;</span>h3<span class="op">&gt;</span><span class="dt">Setup</span><span class="op">:</span> {props<span class="op">.</span><span class="at">setup</span>}<span class="op">&lt;/</span>h3<span class="op">&gt;</span>}</span>
+<span id="cb44-19"><a href="#cb44-19" aria-hidden="true" tabindex="-1"></a>            <span class="op">&lt;</span>p<span class="op">&gt;</span><span class="dt">Punchline</span><span class="op">:</span> {props<span class="op">.</span><span class="at">punchline</span>}<span class="op">&lt;/</span>p<span class="op">&gt;</span></span>
+<span id="cb44-20"><a href="#cb44-20" aria-hidden="true" tabindex="-1"></a>            <span class="op">&lt;</span>hr <span class="op">/&gt;</span></span>
+<span id="cb44-21"><a href="#cb44-21" aria-hidden="true" tabindex="-1"></a>        <span class="op">&lt;/</span>div<span class="op">&gt;</span></span>
+<span id="cb44-22"><a href="#cb44-22" aria-hidden="true" tabindex="-1"></a>    )</span>
+<span id="cb44-23"><a href="#cb44-23" aria-hidden="true" tabindex="-1"></a>}</span>
+<span id="cb44-24"><a href="#cb44-24" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb44-25"><a href="#cb44-25" aria-hidden="true" tabindex="-1"></a><span class="im">export</span> <span class="im">default</span> <span class="kw">function</span> <span class="fu">App</span>() {</span>
+<span id="cb44-26"><a href="#cb44-26" aria-hidden="true" tabindex="-1"></a>    <span class="kw">const</span> jokeElements <span class="op">=</span> jokesData<span class="op">.</span><span class="fu">map</span>(joke <span class="kw">=&gt;</span> {</span>
+<span id="cb44-27"><a href="#cb44-27" aria-hidden="true" tabindex="-1"></a>        <span class="cf">return</span> <span class="op">&lt;</span>Joke setup<span class="op">=</span>{joke<span class="op">.</span><span class="at">setup</span>} punchline<span class="op">=</span>{joke<span class="op">.</span><span class="at">punchline</span>} <span class="op">/&gt;</span></span>
+<span id="cb44-28"><a href="#cb44-28" aria-hidden="true" tabindex="-1"></a>    })</span>
+<span id="cb44-29"><a href="#cb44-29" aria-hidden="true" tabindex="-1"></a>    <span class="cf">return</span> (</span>
+<span id="cb44-30"><a href="#cb44-30" aria-hidden="true" tabindex="-1"></a>        <span class="op">&lt;</span>div<span class="op">&gt;</span></span>
+<span id="cb44-31"><a href="#cb44-31" aria-hidden="true" tabindex="-1"></a>            {jokeElements}</span>
+<span id="cb44-32"><a href="#cb44-32" aria-hidden="true" tabindex="-1"></a>        <span class="op">&lt;/</span>div<span class="op">&gt;</span></span>
+<span id="cb44-33"><a href="#cb44-33" aria-hidden="true" tabindex="-1"></a>    )</span>
+<span id="cb44-34"><a href="#cb44-34" aria-hidden="true" tabindex="-1"></a>}</span></code></pre></div>
+<h2 id="events">Events</h2>
+<p>Do not use the “()” for function call in the JSX</p>
+<div class="sourceCode" id="cb45"><pre
+class="sourceCode javascript"><code class="sourceCode javascript"><span id="cb45-1"><a href="#cb45-1" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb45-2"><a href="#cb45-2" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> React <span class="im">from</span> <span class="st">&quot;react&quot;</span></span>
+<span id="cb45-3"><a href="#cb45-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb45-4"><a href="#cb45-4" aria-hidden="true" tabindex="-1"></a><span class="im">export</span> <span class="im">default</span> <span class="kw">function</span> <span class="fu">App</span>() {</span>
+<span id="cb45-5"><a href="#cb45-5" aria-hidden="true" tabindex="-1"></a>    <span class="kw">function</span> <span class="fu">handleClick</span>() {</span>
+<span id="cb45-6"><a href="#cb45-6" aria-hidden="true" tabindex="-1"></a>        <span class="bu">console</span><span class="op">.</span><span class="fu">log</span>(<span class="st">&quot;I was clicked!&quot;</span>)</span>
+<span id="cb45-7"><a href="#cb45-7" aria-hidden="true" tabindex="-1"></a>    }</span>
+<span id="cb45-8"><a href="#cb45-8" aria-hidden="true" tabindex="-1"></a>    </span>
+<span id="cb45-9"><a href="#cb45-9" aria-hidden="true" tabindex="-1"></a>    <span class="kw">function</span> <span class="fu">handleOnMouseOver</span>() {</span>
+<span id="cb45-10"><a href="#cb45-10" aria-hidden="true" tabindex="-1"></a>        <span class="bu">console</span><span class="op">.</span><span class="fu">log</span>(<span class="st">&quot;MouseOver&quot;</span>)</span>
+<span id="cb45-11"><a href="#cb45-11" aria-hidden="true" tabindex="-1"></a>    }</span>
+<span id="cb45-12"><a href="#cb45-12" aria-hidden="true" tabindex="-1"></a>    </span>
+<span id="cb45-13"><a href="#cb45-13" aria-hidden="true" tabindex="-1"></a>    <span class="cf">return</span> (</span>
+<span id="cb45-14"><a href="#cb45-14" aria-hidden="true" tabindex="-1"></a>        <span class="op">&lt;</span>div className<span class="op">=</span><span class="st">&quot;container&quot;</span><span class="op">&gt;</span></span>
+<span id="cb45-15"><a href="#cb45-15" aria-hidden="true" tabindex="-1"></a>            <span class="op">&lt;</span>img </span>
+<span id="cb45-16"><a href="#cb45-16" aria-hidden="true" tabindex="-1"></a>                src<span class="op">=</span><span class="st">&quot;https://picsum.photos/640/360&quot;</span> </span>
+<span id="cb45-17"><a href="#cb45-17" aria-hidden="true" tabindex="-1"></a>                onMouseOver<span class="op">=</span>{handleOnMouseOver} </span>
+<span id="cb45-18"><a href="#cb45-18" aria-hidden="true" tabindex="-1"></a>            <span class="op">/&gt;</span></span>
+<span id="cb45-19"><a href="#cb45-19" aria-hidden="true" tabindex="-1"></a>            <span class="op">&lt;</span>button onClick<span class="op">=</span>{handleClick}<span class="op">&gt;</span>Click me<span class="op">&lt;/</span>button<span class="op">&gt;</span></span>
+<span id="cb45-20"><a href="#cb45-20" aria-hidden="true" tabindex="-1"></a>        <span class="op">&lt;/</span>div<span class="op">&gt;</span></span>
+<span id="cb45-21"><a href="#cb45-21" aria-hidden="true" tabindex="-1"></a>    )</span>
+<span id="cb45-22"><a href="#cb45-22" aria-hidden="true" tabindex="-1"></a>}</span>
+<span id="cb45-23"><a href="#cb45-23" aria-hidden="true" tabindex="-1"></a></span></code></pre></div>
+<h2 id="state">State</h2>
+<p>React.useState()</p>
+<div class="sourceCode" id="cb46"><pre
+class="sourceCode javascript"><code class="sourceCode javascript"><span id="cb46-1"><a href="#cb46-1" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb46-2"><a href="#cb46-2" aria-hidden="true" tabindex="-1"></a><span class="kw">const</span> [someval<span class="op">,</span>setterFunc] <span class="op">=</span> React<span class="op">.</span><span class="fu">useState</span>(someInitVal)</span></code></pre></div>
+<p>Converting a Function to a Class</p>
+<p>You can convert a function component like Clock to a class in five
+steps:</p>
+<pre><code>1) Create an ES6 class, with the same name, that extends React.Component.
+
+2) Add a single empty method to it called render().
+
+3) Move the body of the function into the render() method.
+
+4) Replace props with this.props in the render() body.
+
+5) Delete the remaining empty function declaration.</code></pre>
+<h2
+id="lifecyclehttpsreactjs.orgdocsstate-and-lifecycle.html">(Lifecycle)[https://reactjs.org/docs/state-and-lifecycle.html]</h2>
+<p>In applications with many components, it’s very important to free up
+resources taken by the components when they are destroyed.</p>
+<p>We want to set up a timer whenever the Clock is rendered to the DOM
+for the first time. This is called “mounting” in React.</p>
+<p>We also want to clear that timer whenever the DOM produced by the
+Clock is removed. This is called “unmounting” in React. ##
+useEffects</p>
+<p>used for side effects ie API calls ## react-three-fiber</p>
+<p>https://github.com/pmndrs/react-three-fiber</p>
+<p>https://threejs.org/docs/index.html#manual/en/introduction/Creating-a-scene</p>
+<h3 id="basics">Basics</h3>
+<p>scene -&gt; camera -&gt; renderer -&gt; attach to canvas</p>
+<p>geometry -&gt; mesh -&gt; scene.add()</p>
+<p>frustum - A frustum is the name of a 3d shape that is like a pyramid
+with the tip sliced off. In other words think of the word “frustum” as
+another 3D shape like sphere, cube, prism, frustum.</p>
+<p>mesh = geometry + material + orientation</p>
+<p>Example set camera width to canvas</p>
+<div class="sourceCode" id="cb48"><pre
+class="sourceCode javascript"><code class="sourceCode javascript"><span id="cb48-1"><a href="#cb48-1" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb48-2"><a href="#cb48-2" aria-hidden="true" tabindex="-1"></a>    <span class="kw">function</span> <span class="fu">render</span>(time) {</span>
+<span id="cb48-3"><a href="#cb48-3" aria-hidden="true" tabindex="-1"></a>      time <span class="op">*=</span> <span class="fl">0.001</span><span class="op">;</span></span>
+<span id="cb48-4"><a href="#cb48-4" aria-hidden="true" tabindex="-1"></a>     </span>
+<span id="cb48-5"><a href="#cb48-5" aria-hidden="true" tabindex="-1"></a>      <span class="kw">const</span> canvas <span class="op">=</span> renderer<span class="op">.</span><span class="at">domElement</span><span class="op">;</span></span>
+<span id="cb48-6"><a href="#cb48-6" aria-hidden="true" tabindex="-1"></a>      camera<span class="op">.</span><span class="at">aspect</span> <span class="op">=</span> canvas<span class="op">.</span><span class="at">clientWidth</span> <span class="op">/</span> canvas<span class="op">.</span><span class="at">clientHeight</span><span class="op">;</span></span>
+<span id="cb48-7"><a href="#cb48-7" aria-hidden="true" tabindex="-1"></a>      camera<span class="op">.</span><span class="fu">updateProjectionMatrix</span>()<span class="op">;</span></span>
+<span id="cb48-8"><a href="#cb48-8" aria-hidden="true" tabindex="-1"></a>     </span>
+<span id="cb48-9"><a href="#cb48-9" aria-hidden="true" tabindex="-1"></a>      <span class="op">...</span></span></code></pre></div>
+<h3 id="create-app">Create app</h3>
+<div class="sourceCode" id="cb49"><pre
+class="sourceCode bash"><code class="sourceCode bash"><span id="cb49-1"><a href="#cb49-1" aria-hidden="true" tabindex="-1"></a><span class="ex">npx</span> create-react-app my-app</span>
+<span id="cb49-2"><a href="#cb49-2" aria-hidden="true" tabindex="-1"></a><span class="bu">cd</span> my-app</span></code></pre></div>
+<h3 id="install-dependencies">Install dependencies</h3>
+<div class="sourceCode" id="cb50"><pre
+class="sourceCode bash"><code class="sourceCode bash"><span id="cb50-1"><a href="#cb50-1" aria-hidden="true" tabindex="-1"></a><span class="ex">npm</span> install three @react-three/fiber</span>
+<span id="cb50-2"><a href="#cb50-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb50-3"><a href="#cb50-3" aria-hidden="true" tabindex="-1"></a><span class="ex">npm</span> install <span class="at">--save</span> husky lint-staged prettier</span></code></pre></div>
+<h3 id="start">Start</h3>
+<div class="sourceCode" id="cb51"><pre
+class="sourceCode bash"><code class="sourceCode bash"><span id="cb51-1"><a href="#cb51-1" aria-hidden="true" tabindex="-1"></a><span class="ex">npm</span> run start</span></code></pre></div>
+<h2 id="node.js">Node.js</h2>
+<div class="sourceCode" id="cb52"><pre
+class="sourceCode bash"><code class="sourceCode bash"><span id="cb52-1"><a href="#cb52-1" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb52-2"><a href="#cb52-2" aria-hidden="true" tabindex="-1"></a><span class="co">## initialize minimum node project with a minimal package.json</span></span>
+<span id="cb52-3"><a href="#cb52-3" aria-hidden="true" tabindex="-1"></a><span class="ex">npm</span> init <span class="at">-y</span> </span>
+<span id="cb52-4"><a href="#cb52-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb52-5"><a href="#cb52-5" aria-hidden="true" tabindex="-1"></a><span class="co">## install a package </span></span>
+<span id="cb52-6"><a href="#cb52-6" aria-hidden="true" tabindex="-1"></a><span class="ex">npm</span> i <span class="op">&lt;</span>some package<span class="op">&gt;</span> </span>
+<span id="cb52-7"><a href="#cb52-7" aria-hidden="true" tabindex="-1"></a><span class="ex">npm</span> i express </span></code></pre></div>
+<h2 id="jwt-jot">JWT “jot”</h2>
+<p>https://datatracker.ietf.org/doc/html/rfc7519</p>
+<p>https://www.bezkoder.com/jwt-json-web-token/</p>
+<p>https://www.bezkoder.com/react-express-authentication-jwt/</p>
+<p>https://blog.galmalachi.com/react-nodejs-and-jwt-authentication-the-right-way</p>
+<p>https://jwt.io/introduction/</p>
+<p>JWT is typically in header</p>
+<pre class="http"><code>x-access-token: [header].[payload].[signature]
+</code></pre>
+<h2 id="security-1">Security</h2>
+<p>*** USE HTTPS ***</p>
+<p>JWT does NOT secure your data. JWT does not hide, obscure, secure
+data at all.</p>
+<p>The purpose of JWT is to prove that the data is generated by an
+authentic source.</p>
+<p>So, what if there is a Man-in-the-middle attack that can get JWT,
+then decode user information? Yes, that is possible, so always make sure
+that your application has the HTTPS encryption. ## Basic Flow</p>
+<p>Browser Server 1) send login(usr,pw) =&gt;<br />
+2) create JWT with secret 3) &lt;= return JWT 4) send request with JWT
+in header =&gt; 5) validate JWT 6) &lt;= return response ## Storing JWT
+on the client side</p>
+<ul>
+<li><p>Browser: Local Storage</p></li>
+<li><p>IOS: Keychain</p></li>
+<li><p>Android: SharedPreferences ## JWT Token</p></li>
+<li><p>Header</p></li>
+<li><p>Payload</p></li>
+<li><p>Signature</p></li>
+</ul>
+<h3 id="header">Header</h3>
+<div class="sourceCode" id="cb54"><pre
+class="sourceCode json"><code class="sourceCode json"><span id="cb54-1"><a href="#cb54-1" aria-hidden="true" tabindex="-1"></a><span class="fu">{</span></span>
+<span id="cb54-2"><a href="#cb54-2" aria-hidden="true" tabindex="-1"></a>    <span class="dt">&quot;typ&quot;</span><span class="fu">:</span> <span class="st">&quot;JWT&quot;</span><span class="fu">,</span></span>
+<span id="cb54-3"><a href="#cb54-3" aria-hidden="true" tabindex="-1"></a>    <span class="dt">&quot;alg&quot;</span><span class="fu">:</span> <span class="st">&quot;HS256&quot;</span></span>
+<span id="cb54-4"><a href="#cb54-4" aria-hidden="true" tabindex="-1"></a><span class="fu">}</span></span></code></pre></div>
+<h3 id="payload">Payload</h3>
+<p>What is stored in the token</p>
+<h4 id="standard-fields">Standard fields</h4>
+<ul>
+<li><p>iss: issuer</p></li>
+<li><p>iat: time issued</p></li>
+<li><p>exp: expiration</p></li>
+</ul>
+<div class="sourceCode" id="cb55"><pre
+class="sourceCode json"><code class="sourceCode json"><span id="cb55-1"><a href="#cb55-1" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb55-2"><a href="#cb55-2" aria-hidden="true" tabindex="-1"></a><span class="fu">{</span></span>
+<span id="cb55-3"><a href="#cb55-3" aria-hidden="true" tabindex="-1"></a>  <span class="dt">&quot;userId&quot;</span><span class="fu">:</span> <span class="st">&quot;some user&quot;</span><span class="fu">,</span></span>
+<span id="cb55-4"><a href="#cb55-4" aria-hidden="true" tabindex="-1"></a>  <span class="dt">&quot;username&quot;</span><span class="fu">:</span> <span class="st">&quot;anon&quot;</span><span class="fu">,</span></span>
+<span id="cb55-5"><a href="#cb55-5" aria-hidden="true" tabindex="-1"></a>  <span class="dt">&quot;email&quot;</span><span class="fu">:</span> <span class="st">&quot;anon@anon.io&quot;</span><span class="fu">,</span></span>
+<span id="cb55-6"><a href="#cb55-6" aria-hidden="true" tabindex="-1"></a>  <span class="er">//</span> <span class="er">standard</span> <span class="er">fields</span></span>
+<span id="cb55-7"><a href="#cb55-7" aria-hidden="true" tabindex="-1"></a>  <span class="dt">&quot;iss&quot;</span><span class="fu">:</span> <span class="st">&quot;zKoder, author of bezkoder.com&quot;</span><span class="fu">,</span></span>
+<span id="cb55-8"><a href="#cb55-8" aria-hidden="true" tabindex="-1"></a>  <span class="dt">&quot;iat&quot;</span><span class="fu">:</span> <span class="dv">1570238918</span><span class="fu">,</span></span>
+<span id="cb55-9"><a href="#cb55-9" aria-hidden="true" tabindex="-1"></a>  <span class="dt">&quot;exp&quot;</span><span class="fu">:</span> <span class="dv">1570238992</span></span>
+<span id="cb55-10"><a href="#cb55-10" aria-hidden="true" tabindex="-1"></a><span class="fu">}</span></span></code></pre></div>
+<h3 id="signature">Signature</h3>
+<div class="sourceCode" id="cb56"><pre
+class="sourceCode js"><code class="sourceCode javascript"><span id="cb56-1"><a href="#cb56-1" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb56-2"><a href="#cb56-2" aria-hidden="true" tabindex="-1"></a><span class="kw">const</span> data <span class="op">=</span> <span class="fu">Base64UrlEncode</span>(header) <span class="op">+</span> <span class="st">&#39;.&#39;</span> <span class="op">+</span> <span class="fu">Base64UrlEncode</span>(payload)<span class="op">;</span></span>
+<span id="cb56-3"><a href="#cb56-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb56-4"><a href="#cb56-4" aria-hidden="true" tabindex="-1"></a><span class="kw">const</span> hashedData <span class="op">=</span> <span class="fu">Hash</span>(data<span class="op">,</span> secret)<span class="op">;</span></span>
+<span id="cb56-5"><a href="#cb56-5" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb56-6"><a href="#cb56-6" aria-hidden="true" tabindex="-1"></a><span class="kw">const</span> signature <span class="op">=</span> <span class="fu">Base64UrlEncode</span>(hashedData)<span class="op">;</span></span>
+<span id="cb56-7"><a href="#cb56-7" aria-hidden="true" tabindex="-1"></a></span></code></pre></div>
+<h2 id="jwt-node-express-mysql">JWT + Node + Express + MySQL</h2>
+<p>https://www.bezkoder.com/node-js-jwt-authentication-mysql/</p>
+<h3 id="signup-and-login-flow">Signup and Login flow</h3>
+<p>User Registration</p>
+<p>POST api/auth/signup =&gt; Check and sve user to db</p>
+<pre><code>                        &lt;=      Register successfully message</code></pre>
+<p>User Login</p>
+<p>POST api/suth/sigin =&gt; Authenticate</p>
+<pre><code>                        &lt;=      Create JWT string with secret
+                                return {token, user info, authorities}</code></pre>
+<p>Access Resource</p>
+<p>JWT on x-access-token =&gt; Check JWT signature, get user info and
+authenticate header</p>
+<pre><code>                        &lt;=      return content based in authorization</code></pre>
+<h3 id="jwt-refresh-flow">JWT Refresh flow</h3>
+<p>User Login</p>
+<p>POST api/suth/sigin =&gt; Authenticate</p>
+<pre><code>                        &lt;=      Create JWT string with secret
+                                return {token, *refreshToken, user info, authorities}</code></pre>
+<p>Access Resources with Expired Token</p>
+<p>Request data with JWT =&gt; Validate and throw TokenExpiredError in
+the header</p>
+<pre><code>                        &lt;=      Return Token Expired message</code></pre>
+<p>Token Refresh</p>
+<p>POST api/auth/refreshToken =&gt; Verify Refresh Token</p>
+<pre><code>                        &lt;=      return {new token, resfreshToken}</code></pre>
+<h2 id="buildspace-solana-project">Buildspace Solana project</h2>
+<p>program:</p>
+<pre><code>a) piece of code that lives on the blockchain
+
+b) programs are stateless
+
+c) programs interact with accounts for data</code></pre>
+<p>accounts</p>
+<pre><code>a) stores data
+
+b) users can have 1,000s of accounts </code></pre>
+<p>Configuring Solana</p>
+<pre><code>Install rust
+https://doc.rust-lang.org/book/ch01-01-installation.html
+
+Install Solana: https://docs.solana.com/cli/install-solana-cli-tools#use-solanas-install-tool
+
+set Solana network to localhost
+
+```bash</code></pre>
+<p>solana config set –url localhost ```</p>
+<p>start a local Solana node</p>
+<div class="sourceCode" id="cb66"><pre
+class="sourceCode bash"><code class="sourceCode bash"><span id="cb66-1"><a href="#cb66-1" aria-hidden="true" tabindex="-1"></a><span class="ex">solana-test-validator</span> </span></code></pre></div>
+<p>Install mocha, anchor, npm anchor, npm solana/web3.js</p>
+<div class="sourceCode" id="cb67"><pre
+class="sourceCode bash"><code class="sourceCode bash"><span id="cb67-1"><a href="#cb67-1" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb67-2"><a href="#cb67-2" aria-hidden="true" tabindex="-1"></a><span class="ex">npm</span> install <span class="at">-g</span> mocha</span>
+<span id="cb67-3"><a href="#cb67-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb67-4"><a href="#cb67-4" aria-hidden="true" tabindex="-1"></a><span class="ex">cargo</span> install <span class="at">--git</span> https://github.com/project-serum/anchor anchor-cli <span class="at">--locked</span></span>
+<span id="cb67-5"><a href="#cb67-5" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb67-6"><a href="#cb67-6" aria-hidden="true" tabindex="-1"></a><span class="ex">npm</span> install @project-serum/anchor @solana/web3.js</span></code></pre></div>
+<p>Create a project</p>
+<div class="sourceCode" id="cb68"><pre
+class="sourceCode bash"><code class="sourceCode bash"><span id="cb68-1"><a href="#cb68-1" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb68-2"><a href="#cb68-2" aria-hidden="true" tabindex="-1"></a><span class="ex">anchor</span> init myproject <span class="at">--javascript</span> </span></code></pre></div>
+<p>Generate local Solana wallet</p>
+<div class="sourceCode" id="cb69"><pre
+class="sourceCode bash"><code class="sourceCode bash"><span id="cb69-1"><a href="#cb69-1" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb69-2"><a href="#cb69-2" aria-hidden="true" tabindex="-1"></a><span class="ex">solana-keygen</span> new</span></code></pre></div>
+<p>Get public key for local wallet</p>
+<div class="sourceCode" id="cb70"><pre
+class="sourceCode bash"><code class="sourceCode bash"><span id="cb70-1"><a href="#cb70-1" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb70-2"><a href="#cb70-2" aria-hidden="true" tabindex="-1"></a><span class="ex">solana</span> address</span>
+<span id="cb70-3"><a href="#cb70-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb70-4"><a href="#cb70-4" aria-hidden="true" tabindex="-1"></a> <span class="kw">```</span></span>
+<span id="cb70-5"><a href="#cb70-5" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb70-6"><a href="#cb70-6" aria-hidden="true" tabindex="-1"></a> <span class="ex">airdrop</span> sol </span>
+<span id="cb70-7"><a href="#cb70-7" aria-hidden="true" tabindex="-1"></a> </span>
+<span id="cb70-8"><a href="#cb70-8" aria-hidden="true" tabindex="-1"></a><span class="kw">```</span>bash</span>
+<span id="cb70-9"><a href="#cb70-9" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb70-10"><a href="#cb70-10" aria-hidden="true" tabindex="-1"></a><span class="ex">solana</span> airdrop 5 93SAmhpBneKq6UybsFbn5gf9kzAcooCz732bGaGiBehg  <span class="at">--url</span> https://api.devnet.solana.com</span></code></pre></div>
+<h2 id="devops">DevOps</h2>
+<h3 id="antipattern">AntiPattern</h3>
+<p>nanoservices - a service whose overhead outweighs it’s utility</p>
+<h3 id="terraform">Terraform</h3>
+<h3 id="blocks">Blocks</h3>
+<p>block template:</p>
+<pre><code>
+block_type label_one label_two {
+    key = value
+    embedded_block {
+        key = value
+    }
+}
+</code></pre>
+<h3 id="object-types">object types:</h3>
+<ul>
+<li>string</li>
+<li>number</li>
+<li>bool</li>
+<li>list</li>
+<li>map</li>
+</ul>
+<h3 id="keyword-references">Keyword references</h3>
+<p>var.somevariable</p>
+<p>local.someobject.somevar</p>
+<p>module.someobject.somevar</p>
+<h3 id="provisioners">Provisioners</h3>
+<p>last resort prefer puppet,chef, ansible</p>
+<p>local - executes on local server</p>
+<p>remote - executes on remote server</p>
+<p>can happen at creation or destruction</p>
+<p>example file provisioner with heredoc syntax:</p>
+<pre><code>
+provisioner &quot;file&quot; {
+  content = &lt;&lt;EOF
+access_key = 
+secret_key = 
+EOF
+  destination = &quot;/home/aws-user/.s3cfg&quot;
+}
+</code></pre>
+<h3 id="resources">Resources</h3>
+<p>example random int</p>
+<pre><code>
+resource &quot;random_integer&quot; &quot;rand&quot;{
+    min = 10000
+    max = 99999
+}
+</code></pre>
+<h3 id="functions">Functions</h3>
+<p>merge() - takes two maps and merges them.</p>
+<h3 id="cli">CLI</h3>
+<p>terraform init</p>
+<p>terraform plan</p>
+<p>terraform apply</p>
+<h3 id="variables">variables</h3>
+<p>precedence: env, file, command line</p>
+<h3 id="environments">Environments</h3>
+<p>use workspaces as recommended by Hasihcorp</p>
+<div class="sourceCode" id="cb74"><pre
+class="sourceCode bash"><code class="sourceCode bash"><span id="cb74-1"><a href="#cb74-1" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb74-2"><a href="#cb74-2" aria-hidden="true" tabindex="-1"></a><span class="ex">terraform</span> workspace new Developement</span>
+<span id="cb74-3"><a href="#cb74-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb74-4"><a href="#cb74-4" aria-hidden="true" tabindex="-1"></a><span class="ex">terrform</span> plan <span class="at">-out</span> dev.tfplan</span>
+<span id="cb74-5"><a href="#cb74-5" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb74-6"><a href="#cb74-6" aria-hidden="true" tabindex="-1"></a><span class="ex">terrform</span> apply <span class="st">&quot;dev.tfpaln&quot;</span></span>
+<span id="cb74-7"><a href="#cb74-7" aria-hidden="true" tabindex="-1"></a></span></code></pre></div>
+<p>use vars from workspace</p>
+<div class="sourceCode" id="cb75"><pre
+class="sourceCode javascript"><code class="sourceCode javascript"><span id="cb75-1"><a href="#cb75-1" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb75-2"><a href="#cb75-2" aria-hidden="true" tabindex="-1"></a>locals {</span>
+<span id="cb75-3"><a href="#cb75-3" aria-hidden="true" tabindex="-1"></a>    env_name <span class="op">=</span> <span class="fu">lower</span>(terrform<span class="op">.</span><span class="at">workspace</span>)</span>
+<span id="cb75-4"><a href="#cb75-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb75-5"><a href="#cb75-5" aria-hidden="true" tabindex="-1"></a>    common_tags <span class="op">=</span> {</span>
+<span id="cb75-6"><a href="#cb75-6" aria-hidden="true" tabindex="-1"></a>        Environment <span class="op">=</span> local<span class="op">.</span><span class="at">env_name</span></span>
+<span id="cb75-7"><a href="#cb75-7" aria-hidden="true" tabindex="-1"></a>    }</span>
+<span id="cb75-8"><a href="#cb75-8" aria-hidden="true" tabindex="-1"></a>}</span></code></pre></div>
+<h3 id="secrets">Secrets</h3>
+<p>3 options: varibales file, env var, secrets management</p>
+<p>use env vars for credentials by simply exporting and referencing
+them</p>
+<h3 id="modules">Modules</h3>
+<div class="sourceCode" id="cb76"><pre
+class="sourceCode javascript"><code class="sourceCode javascript"><span id="cb76-1"><a href="#cb76-1" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb76-2"><a href="#cb76-2" aria-hidden="true" tabindex="-1"></a>module <span class="st">&quot;bucket&quot;</span> {</span>
+<span id="cb76-3"><a href="#cb76-3" aria-hidden="true" tabindex="-1"></a>    name <span class="op">=</span> <span class="st">&quot;some-bucket&quot;</span></span>
+<span id="cb76-4"><a href="#cb76-4" aria-hidden="true" tabindex="-1"></a>    source <span class="op">=</span> <span class="st">&quot;.</span><span class="sc">\\</span><span class="st">Modules</span><span class="sc">\s</span><span class="st">omefiles&quot;</span></span>
+<span id="cb76-5"><a href="#cb76-5" aria-hidden="true" tabindex="-1"></a>}</span>
+<span id="cb76-6"><a href="#cb76-6" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb76-7"><a href="#cb76-7" aria-hidden="true" tabindex="-1"></a>resource <span class="st">&quot;aws_s3_bucket_object&quot;</span> {</span>
+<span id="cb76-8"><a href="#cb76-8" aria-hidden="true" tabindex="-1"></a>    bucket <span class="op">=</span> module<span class="op">.</span><span class="at">bucket</span><span class="op">.</span><span class="at">bucket_id</span></span>
+<span id="cb76-9"><a href="#cb76-9" aria-hidden="true" tabindex="-1"></a>    [<span class="op">...</span>]</span>
+<span id="cb76-10"><a href="#cb76-10" aria-hidden="true" tabindex="-1"></a>}</span></code></pre></div>
+<p>registry.terraform.io ## GCP</p>
+<h3 id="serverlesscompute-services">Serverless/Compute Services</h3>
+<p>code and deploy without need to worry about infra and scale</p>
+<p>only available for node.js and python as of 4/7/22</p>
+<h3 id="app-engine">App Engine</h3>
+<p>PAAS - good for web apps</p>
+<p>supports more languages than Compute Services</p>
+<h3 id="cloud-sql">Cloud SQL</h3>
+<p>Postgres and MySQL</p>
+<h3 id="persistent-disks">Persistent Disks</h3>
+<p>== s3</p>
+<p>block storage</p>
+<p>16 persistent disks</p>
+<h3 id="file-store">File store</h3>
+<p>== NAS</p>
+<h3 id="bigtable">Bigtable</h3>
+<h3 id="cloud-storage">Cloud Storage</h3>
+<p>blob storage</p>
+<h3 id="cloud-spanner">Cloud Spanner</h3>
+<p>dist transaction support</p>
+<p>depends on true time, 200ms clock drift globally</p>
+<h3 id="gcp">GCP</h3>
+<h4 id="logging">Logging</h4>
+<h4 id="data-flow">Data Flow</h4>
+<p>M.P.R. or N.C.S.</p>
+<p>Moving -&gt; Network</p>
+<p>Processing -&gt; Compute</p>
+<p>Remembering -&gt; Storage</p>
+<h4 id="storage">Storage</h4>
+<p>working with buckets</p>
+<p>gsutil</p>
+<p>gsutil ls gs://some_bucket</p>
+<p>gsutil mb -l somelocation gs://some_bucket</p>
+<p>gsutil label get gs://some_bucket</p>
+<p>gsutil label get/set …</p>
+<p>gsutil label ch -l “label:value” gs://somebucket</p>
+<h5 id="versioning">Versioning</h5>
+<p>gsutil versioning get gs://somebucket</p>
+<p>gsutil versioning set on gs://somebucket</p>
+<p>Use ls -a to see versioning</p>
+<p>-a Includes non-current object versions / generations in the listing
+(only useful with a versioning-enabled bucket). If combined with -l
+option also prints metageneration for each listed object.</p>
+<p>gsutil ls -a</p>
+<h5 id="access">Access</h5>
+<p>gsutil acl ch -u AllUsers:R gs://somebucket/someobject</p>
+<h4 id="compute">Compute</h4>
+<p>gcloud</p>
+<p>gcloud compute machine-types list –filter f1-micro</p>
+<p>gcloud config get-value project</p>
+<p>gcloud services list</p>
+<p>gcloud compute instances list</p>
+<p>gcloud compute instances create somevm</p>
+<p>gcloud compute instances delete somevm</p>
+<p>gcloud config init</p>
+<p>gcloud config list</p>
+<p>gcloud config configurations create SOMECONFIG</p>
+<p>gcloud config configurations activate SOMECONFIG</p>
+<p>gcloud config set|unset <property> <value></p>
+<p>gcloud config get-value <property></p>
+<p>gcloud compute machine-types list –filter=“NAME:f1-micro”</p>
+<p>gcloud compute machine-types list –filter=“NAME:f1-micro AND
+ZONE:us-east*”</p>
+<p>gcloud compute instances list</p>
+<p>gcloud compute ssh myhappyvm</p>
+<h5 id="rest-metadata-api">REST metadata API</h5>
+<p>curl -H “Metadata-Flavor:Google”
+metadata.google.internal/computeMetadata/v1/</p>
+<p>curl -H “Metadata-Flavor:Google”
+metadata.google.internal/computeMetadata/v1/instance</p>
+<div class="sourceCode" id="cb77"><pre
+class="sourceCode bash"><code class="sourceCode bash"><span id="cb77-1"><a href="#cb77-1" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb77-2"><a href="#cb77-2" aria-hidden="true" tabindex="-1"></a><span class="ex">gcloud</span> config get project</span>
+<span id="cb77-3"><a href="#cb77-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb77-4"><a href="#cb77-4" aria-hidden="true" tabindex="-1"></a><span class="ex">gcloud</span> config set compute/region us-east </span>
+<span id="cb77-5"><a href="#cb77-5" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb77-6"><a href="#cb77-6" aria-hidden="true" tabindex="-1"></a><span class="ex">gcloud</span> config set compute/zone us-east1-b </span>
+<span id="cb77-7"><a href="#cb77-7" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb77-8"><a href="#cb77-8" aria-hidden="true" tabindex="-1"></a><span class="ex">gsutil</span> mb <span class="at">-p</span> playground-someproject <span class="at">-c</span> Standard <span class="at">-l</span> us <span class="at">-b</span> on gs://challengevmbucket</span>
+<span id="cb77-9"><a href="#cb77-9" aria-hidden="true" tabindex="-1"></a> </span>
+<span id="cb77-10"><a href="#cb77-10" aria-hidden="true" tabindex="-1"></a><span class="ex">gcloud</span> compute instances create challengevm <span class="at">--preemptible</span> <span class="at">--no-restart-on-failure</span> <span class="at">--maintenance-policy</span><span class="op">=</span>terminate <span class="at">--machine-type</span><span class="op">=</span>f1-micro</span></code></pre></div>
+<h4 id="security-2">Security</h4>
+<p>AAA Data flow</p>
+<p>-&gt; AuthN authen</p>
+<p>-&gt; AuthZ authorization, IAM Identity and Access Management</p>
+<pre><code>authz hierarchy 
+
+organization 
+
+folders
+
+project</code></pre>
+<p>-&gt; Acct accounting system records failed logins, GCS Object
+Lifecycle management</p>
+<p>Least Privelege</p>
+<p>defense in depth</p>
+<p>fail securely</p>
+<p>https://owasp.org/Top10/A04_2021-Insecure_Design/#secure-design</p>
+<h5 id="iam">IAM</h5>
+<h6 id="roles">Roles</h6>
+<pre><code>primitive roles
+
+    - viewer ro
+
+    - editor view + change
+
+    - owner view + editor + access and billing
+
+predefined roles - used for specific GCP resources
+
+custom role
+
+    project or organization level</code></pre>
+<h6 id="members">Members</h6>
+<pre><code>- user 
+
+- serviceAccount
+
+- group 
+
+- domain
+
+- allAutheticatedUsers - *resource public to any gmail account DONT USE
+
+- allUsers - anon</code></pre>
+<h6 id="groups">Groups</h6>
+<pre><code>collection of accounts and service accounts
+
+every group has a email addr
+
+* this should be default, use it for most situations *</code></pre>
+<h6 id="policies">Policies</h6>
+<pre><code>binds members to roles
+
+attach policies to resource
+
+Managing policies</code></pre>
+<pre class="shell"><code>
+        gcloud [GROUP] add-iam-policy-binding [RESOURCE-NAME] --role [ROLE-ID-TO-GRANT] --member user: [USER-EMAIL]
+
+        gcloud [GROUP] remove-iam-policy-binding [RESOURCE-NAME] --role [ROLE-ID-TO-REVOKE] --member user: [USER-EMAIL]
+</code></pre>
+<p>commands missing</p>
+<p>atuscaling</p>
+<p>firewall ruls</p>
+<p>service accounts</p>
+<br>
+<br>
+<hr>
+<a rel="license" href="http://creativecommons.org/licenses/by-sa/4.0/"><img alt="Creative Commons License" style="border-width:0" src="https://i.creativecommons.org/l/by-sa/4.0/88x31.png" /></a><br />This work is licensed under a <a rel="license" href="http://creativecommons.org/licenses/by-sa/4.0/">Creative Commons Attribution-ShareAlike 4.0 International License</a>.
+
+<script>
+    const darkModeToggle = document.getElementById('dark-mode-toggle')
+    darkModeToggle.addEventListener('click', () => {
+      document.body.classList.toggle('latex-dark')
+    })
+</script>
+</body>
+</html>
