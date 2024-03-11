@@ -93,28 +93,23 @@
 <header id="title-block-header">
 <h1 class="title">ecallen</h1>
 </header>
-<h1 id="editors">Editors</h1>
-<h2 id="nvim">nvim</h2>
-<h3 id="set-foling-in-nvim">set foling in nvim</h3>
-<p>https://bitcrowd.dev/folding-sections-of-markdown-in-vim/</p>
-<p>https://neovim.io/doc/user/fold.html</p>
-<p>config/nvim/lua/config/options.lua</p>
+<h1 id="templates">Templates</h1>
+<h2 id="python-makefile">python Makefile</h2>
 <div class="sourceCode" id="cb1"><pre
-class="sourceCode lua"><code class="sourceCode lua"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="kw">local</span> <span class="va">vim</span> <span class="op">=</span> <span class="va">vim</span></span>
-<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="kw">local</span> <span class="va">opt</span> <span class="op">=</span> <span class="va">vim</span><span class="op">.</span><span class="va">opt</span></span>
+class="sourceCode makefile"><code class="sourceCode makefile"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="dv">snapshot:</span></span>
+<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a>pip3 freeze &gt; requirements.txt</span>
 <span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a><span class="va">opt</span><span class="op">.</span><span class="va">foldmethod</span> <span class="op">=</span> <span class="st">&quot;expr&quot;</span></span>
-<span id="cb1-5"><a href="#cb1-5" aria-hidden="true" tabindex="-1"></a><span class="va">opt</span><span class="op">.</span><span class="va">foldexpr</span> <span class="op">=</span> <span class="st">&quot;nvim_treesitter#foldexpr()&quot;</span></span></code></pre></div>
-<h2 id="vim">vim</h2>
-<p>format a file gg =G</p>
-<p>indent visual select &lt; or &gt;</p>
-<h4 id="projectile">Projectile</h4>
-<p>M-x projectile-discover-in-directory</p>
-<h4 id="dired">Dired</h4>
-<p>create file spc-. then type filename</p>
-<p>open neotree: SPC-o-p</p>
-<h4 id="buffers-and-windows">Buffers and windows</h4>
-<p>buffers - hold data, usually file</p>
+<span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a><span class="dv">install:</span></span>
+<span id="cb1-5"><a href="#cb1-5" aria-hidden="true" tabindex="-1"></a>pip3 install --upgrade pip &amp;&amp; pip3 install -r requirements.txt</span>
+<span id="cb1-6"><a href="#cb1-6" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-7"><a href="#cb1-7" aria-hidden="true" tabindex="-1"></a><span class="dv">lint:</span></span>
+<span id="cb1-8"><a href="#cb1-8" aria-hidden="true" tabindex="-1"></a>pylint --disable=R,C app/main.py</span>
+<span id="cb1-9"><a href="#cb1-9" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-10"><a href="#cb1-10" aria-hidden="true" tabindex="-1"></a><span class="dv">format:</span></span>
+<span id="cb1-11"><a href="#cb1-11" aria-hidden="true" tabindex="-1"></a>black app/*</span>
+<span id="cb1-12"><a href="#cb1-12" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-13"><a href="#cb1-13" aria-hidden="true" tabindex="-1"></a><span class="dv">test:</span></span>
+<span id="cb1-14"><a href="#cb1-14" aria-hidden="true" tabindex="-1"></a>python -m pytest -vv --cov=main test_main.py</span></code></pre></div>
 <script>
     const darkModeToggle = document.getElementById('dark-mode-toggle')
     darkModeToggle.addEventListener('click', () => {

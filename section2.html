@@ -93,23 +93,212 @@
 <header id="title-block-header">
 <h1 class="title">ecallen</h1>
 </header>
-<h1 id="templates">Templates</h1>
-<h2 id="python-makefile">python Makefile</h2>
-<div class="sourceCode" id="cb1"><pre
-class="sourceCode makefile"><code class="sourceCode makefile"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="dv">snapshot:</span></span>
-<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="er">        </span>pip3 freeze &gt; requirements.txt</span>
-<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a><span class="dv">install:</span></span>
-<span id="cb1-5"><a href="#cb1-5" aria-hidden="true" tabindex="-1"></a><span class="er">        </span>pip3 install --upgrade pip &amp;&amp; pip3 install -r requirements.txt</span>
-<span id="cb1-6"><a href="#cb1-6" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-7"><a href="#cb1-7" aria-hidden="true" tabindex="-1"></a><span class="dv">lint:</span></span>
-<span id="cb1-8"><a href="#cb1-8" aria-hidden="true" tabindex="-1"></a><span class="er">        </span>pylint --disable=R,C app/main.py</span>
-<span id="cb1-9"><a href="#cb1-9" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-10"><a href="#cb1-10" aria-hidden="true" tabindex="-1"></a><span class="dv">format:</span></span>
-<span id="cb1-11"><a href="#cb1-11" aria-hidden="true" tabindex="-1"></a><span class="er">        </span>black app/*</span>
-<span id="cb1-12"><a href="#cb1-12" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-13"><a href="#cb1-13" aria-hidden="true" tabindex="-1"></a><span class="dv">test:</span></span>
-<span id="cb1-14"><a href="#cb1-14" aria-hidden="true" tabindex="-1"></a><span class="er">        </span>python -m pytest -vv --cov=main test_main.py</span></code></pre></div>
+<h1 id="note-natural-log-ex-b">note: natural log e**x = b</h1>
+<p>loss = -(math.log(softmax_output[0]))</p>
+<pre><code>
+Generic loss class
+```python
+import numpy as np
+class Loss:
+  def calculate(self, output, y):
+    sample_losses = self.forward(output,y)
+    data_loss = np.mean(sample_losses) 
+    return data_loss
+</code></pre>
+<p>Cross Entropy Loss class</p>
+<div class="sourceCode" id="cb2"><pre
+class="sourceCode python"><code class="sourceCode python"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a></span></code></pre></div>
+<h3 id="ecdsa">ECDSA</h3>
+<p>https://www.instructables.com/Understanding-how-ECDSA-protects-your-data/</p>
+<p>Allows verification of authenticity without compromising security. It
+is impossible to forge a signature. It does no encrypt the data but
+ensures it is not tampered with.</p>
+<p>Algo (high level)</p>
+<p>choose random point on curve, point of origin</p>
+<p>generate a random number, private keys</p>
+<p>apply equation to private key and point of origin, public key</p>
+<p>Sign the file</p>
+<p>equation(use the private key, with a hash of the file), signature</p>
+<p>signature is divided into R and S</p>
+<p>Verification</p>
+<p>equation(S, public key) == R</p>
+<p>ECDSA uses SHA1 hashes</p>
+<h3 id="mastering-bitcoin">Mastering Bitcoin</h3>
+<p>transaction input and output - there will be a difference between
+them which is the miner fee</p>
+<p>transactions form a chain</p>
+<p>users keys can unlock previous output in the chain proving
+ownership</p>
+<p>change address - address of new and old user</p>
+<p>UTXO - unspent transactions database ### (Ethereum
+Book)[https://github.com/ethereumbook/ethereumbook] ### Fallback
+functions</p>
+<p>It is called when a non-existent function is called on the
+contract.</p>
+<p>It is required to be marked external.</p>
+<p>It has no name.</p>
+<p>It has no arguments</p>
+<p>It can not return any thing.</p>
+<p>It can be defined one per contract.</p>
+<p>If not marked payable, it will throw exception if contract receives
+plain ether without data.</p>
+<p>Solidity fallback function:</p>
+<p>It has no name, no arguments, no return values. It external and
+payable. Defined once. Called when non-existent function called.</p>
+<h3 id="eoa-vs.-contract-accounts">EOA vs. Contract Accounts</h3>
+<p>Externally owned accounts are those that have a private key; having
+the private key means control over access to funds or contracts.</p>
+<p>A contract account has smart contract code, which a simple EOA can’t
+have. Furthermore, a contract account does not have a private key.
+Instead, it is owned (and controlled) by the logic of its smart contract
+code: the software program recorded on the Ethereum blockchain at the
+contract account’s creation and executed by the EVM.</p>
+<p>account addresses are derived directly from private keys: a private
+key uniquely determines a single Ethereum address, also known as an
+account.</p>
+<h3 id="cryptography">Cryptography</h3>
+<p>There is no encryption as part of the Ethereum protocol—all messages
+that are sent as part of the operation of the Ethereum network can
+(necessarily) be read by everyone. As such, private keys are only used
+to create digital signatures for transaction authentication.</p>
+<p>Starting with a private key in the form of a randomly generated
+number k, we multiply it by a predetermined point on the curve called
+the generator point G to produce another point somewhere else on the
+curve, which is the corresponding public key K: K = k * G</p>
+<p>the generator point is always the same for all Ethereum users</p>
+<p>Ethereum only uses uncompressed public keys; therefore the only
+prefix that is relevant is (hex) 04.</p>
+<p>The test most commonly used for a hash function is the empty input.
+If you run the hash function with an empty string as input you should
+see the following results:</p>
+<p>Keccak256(““) =
+c5d2460186f7233c927e7db2dcc703c0e500b653ca82273b7bfad8045d85a470</p>
+<p>SHA3(““) =
+a7ffc6f8bf1ed76651c14756a061d662f580ff4de43b49fa82d80a4b80f8434a</p>
+<p>Ethereum uses Keccak-256, even though it is often called SHA-3 in the
+code.</p>
+<p>Ethereum addresses are unique identifiers that are derived from
+public keys or contracts using the Keccak-256 one-way hash function.</p>
+<p>We use Keccak-256 to calculate the hash of this public key:</p>
+<p>Keccak256(K) =
+2a5bc342ed616b5ba5732269001d3f1ef827552ae1114027bd3ecf1f086ba0f9</p>
+<p>Then we keep only the last 20 bytes (least significant bytes), which
+is our Ethereum address:</p>
+<p>001d3f1ef827552ae1114027bd3ecf1f086ba0f9</p>
+<h3 id="wallet">Wallet</h3>
+<h3 id="transactions">Transactions</h3>
+<p>A transaction is a serialized binary message that contains the
+following data:</p>
+<p>Nonce</p>
+<p>A sequence number, issued by the originating EOA, used to prevent
+message replay</p>
+<p>Gas price</p>
+<p>The amount of ether (in wei) that the originator is willing to pay
+for each unit of gas</p>
+<p>Gas limit</p>
+<p>The maximum amount of gas the originator is willing to buy for this
+transaction</p>
+<p>Recipient</p>
+<p>The destination Ethereum address</p>
+<p>Value</p>
+<p>The amount of ether (in wei) to send to the destination</p>
+<p>Data</p>
+<p>The variable-length binary data payload</p>
+<p>v,r,s</p>
+<p>The three components of an ECDSA digital signature of the originating
+EOA</p>
+<h3 id="smart-contracts-and-solidity">Smart Contracts and Solidity</h3>
+<p>Computer programs</p>
+<p>Smart contracts are simply computer programs. The word “contract” has
+no legal meaning in this context.</p>
+<p>Immutable</p>
+<p>Once deployed, the code of a smart contract cannot change. Unlike
+with traditional software, the only way to modify a smart contract is to
+deploy a new instance.</p>
+<p>Deterministic</p>
+<p>The outcome of the execution of a smart contract is the same for
+everyone who runs it, given the context of the transaction that
+initiated its execution and the state of the Ethereum blockchain at the
+moment of execution.</p>
+<p>EVM context</p>
+<p>Smart contracts operate with a very limited execution context. They
+can access their own state, the context of the transaction that called
+them, and some information about the most recent blocks.</p>
+<p>Decentralized world computer</p>
+<p>The EVM runs as a local instance on every Ethereum node, but because
+all instances of the EVM operate on the same initial state and produce
+the same final state, the system as a whole operates as a single “world
+compute</p>
+<h4 id="lifecycle">Lifecycle</h4>
+<p>0x0 special contract creation address</p>
+<p>contracts only run if they are called by a transaction</p>
+<p>contracts are atomic</p>
+<p>To delete a contract, you execute an EVM opcode called SELFDESTRUCT.
+That operation costs “negative gas,” a gas refund, thereby incentivizing
+the release of network client resources from the deletion of stored
+state.</p>
+<h4 id="solidity">Solidity</h4>
+<p>function syntax:</p>
+<p>function FunctionName([parameters])
+{public|private|internal|external} [pure|view|payable] [modifiers]
+[returns (return types)]</p>
+<h4 id="gas">Gas</h4>
+<p>estimating gas cost:</p>
+<p>var contract = web3.eth.contract(abi).at(address); var gasEstimate =
+contract.myAweSomeMethod.estimateGas(arg1, arg2, {from: account});</p>
+<p>To obtain the gas price from the network you can use:</p>
+<p>var gasPrice = web3.eth.getGasPrice();</p>
+<p>And from there you can estimate the gas cost:</p>
+<p>var gasCostInEther = web3.utils.fromWei((gasEstimate * gasPrice),
+‘ether’);</p>
+<h3 id="security">Security</h3>
+<h4 id="re-entrency">Re-entrency</h4>
+<p>This type of attack can occur when a contract sends ether to an
+unknown address. An attacker can carefully construct a contract at an
+external address that contains malicious code in the fallback
+function.</p>
+<h5 id="prevention">prevention</h5>
+<p>The first is to (whenever possible) use the built-in transfer
+function when sending ether to external contracts.</p>
+<p>The second technique is to ensure that all logic that changes state
+variables happens before ether is sent out of the contract (or any
+external call).</p>
+<p>A third technique is to introduce a mutex.</p>
+<h4 id="over-flow-under-flow">over flow under flow</h4>
+<h5 id="prevention-1">prevention</h5>
+<p>The current conventional technique to guard against under/overflow
+vulnerabilities is to use or build mathematical libraries that replace
+the standard math operators addition, subtraction, and multiplication
+(division is excluded as it does not cause over/underflows and the EVM
+reverts on division by 0).</p>
+<h3 id="tokens">Tokens</h3>
+<h4 id="interface">Interface</h4>
+<p>ERC20</p>
+<p>The ERC20 Interface in Solidity:</p>
+<pre class="solidity"><code>
+contract ERC20 {
+function totalSupply() constant returns (uint theTotalSupply);
+function balanceOf(address _owner) constant returns (uint balance);
+function transfer(address _to, uint _value) returns (bool success);
+function transferFrom(address _from, address _to, uint _value) returns
+(bool success);
+function approve(address _spender, uint _value) returns (bool success);
+function allowance(address _owner, address _spender) constant returns
+(uint remaining);
+event Transfer(address indexed _from, address indexed _to, uint _value);
+event Approval(address indexed _owner, address indexed _spender, uint _value);
+}
+</code></pre>
+<p>data structures</p>
+<p>mapping(address =&gt; uint256) balances;</p>
+<p>mapping (address =&gt; mapping (address =&gt; uint256)) public
+allowed;</p>
+<h4 id="workflows">Workflows</h4>
+<ol type="1">
+<li><p>transfer - wallet to wallet direct transfer of tokens, uses the
+‘transfer’ function</p></li>
+<li><p>approve and transfer - two transaction</p></li>
+</ol>
 <script>
     const darkModeToggle = document.getElementById('dark-mode-toggle')
     darkModeToggle.addEventListener('click', () => {
