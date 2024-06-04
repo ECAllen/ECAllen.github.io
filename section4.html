@@ -29,19 +29,20 @@
 <header id="title-block-header">
 <h1 class="title">ecallen</h1>
 </header>
-<h1 id="programming">Programming</h1>
-<h2 id="docker">Docker</h2>
-<p>docker init - create a Dockerfile</p>
-<p>docker build -t <tag> . - build a docker image</p>
-<p>docker run -d –name mycontainer -p 80:80 myimage</p>
-<p>docker rm <container id></p>
-<h2 id="ollama">Ollama</h2>
-<p>ollama list - list all models</p>
-<p>ollama run codellama:7b - download and run the 7 billion parameter
-codellama model</p>
-<p>ollama run codellama:7b-python - fine tuned model for python</p>
-<p>```python import ollama from langchain import Tool,
-initialize_agent</p>
+<h1
+id="define-the-function-to-interact-with-ollamas-local-service">Define
+the function to interact with Ollama’s local service</h1>
+<p>def ollama_local_query(prompt: str) -&gt; str: # Initialize Ollama
+client client = ollama.Client( base_url=“http://localhost:11434” ) #
+Adjust the base_url to your local server’s URL</p>
+<pre><code># Create a request
+request = ollama.GenerateRequest(prompt=prompt)
+
+# Send the request and get the response
+response = client.generate(request)
+
+# Extract the text from the response
+return response.text</code></pre>
 <script>
     const darkModeToggle = document.getElementById('dark-mode-toggle')
     darkModeToggle.addEventListener('click', () => {
