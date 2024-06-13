@@ -113,7 +113,7 @@ up and boy does that help, particularly when you have a long run ahead
 of you.” ― Charles T. Munger</p>
 <p>Simple tools for complex interactions.</p>
 <p>Tools over process.</p>
-<h1 id="readingbooks">Reading/Books</h1>
+<h1 id="reading-notes">Reading Notes</h1>
 <h3 id="neural-networks-from-scratch">Neural Networks From Scratch</h3>
 <p>Layers</p>
 <div class="sourceCode" id="cb1"><pre
@@ -145,15 +145,51 @@ class="sourceCode python"><code class="sourceCode python"><span id="cb2-1"><a hr
 <span id="cb2-9"><a href="#cb2-9" aria-hidden="true" tabindex="-1"></a>loss <span class="op">=</span> <span class="op">-</span>(math.log(softmax_output[<span class="dv">0</span>]))</span></code></pre></div>
 <p>Generic loss class</p>
 <div class="sourceCode" id="cb3"><pre
-class="sourceCode python"><code class="sourceCode python"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> numpy <span class="im">as</span> np</span>
-<span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a><span class="kw">class</span> Loss:</span>
-<span id="cb3-3"><a href="#cb3-3" aria-hidden="true" tabindex="-1"></a>  <span class="kw">def</span> calculate(<span class="va">self</span>, output, y):</span>
-<span id="cb3-4"><a href="#cb3-4" aria-hidden="true" tabindex="-1"></a>    sample_losses <span class="op">=</span> <span class="va">self</span>.forward(output,y)</span>
-<span id="cb3-5"><a href="#cb3-5" aria-hidden="true" tabindex="-1"></a>    data_loss <span class="op">=</span> np.mean(sample_losses) </span>
-<span id="cb3-6"><a href="#cb3-6" aria-hidden="true" tabindex="-1"></a>    <span class="cf">return</span> data_loss</span></code></pre></div>
+class="sourceCode python"><code class="sourceCode python"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-3"><a href="#cb3-3" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> numpy <span class="im">as</span> np</span>
+<span id="cb3-4"><a href="#cb3-4" aria-hidden="true" tabindex="-1"></a><span class="kw">class</span> Loss:</span>
+<span id="cb3-5"><a href="#cb3-5" aria-hidden="true" tabindex="-1"></a>  <span class="kw">def</span> calculate(<span class="va">self</span>, output, y):</span>
+<span id="cb3-6"><a href="#cb3-6" aria-hidden="true" tabindex="-1"></a>    sample_losses <span class="op">=</span> <span class="va">self</span>.forward(output,y)</span>
+<span id="cb3-7"><a href="#cb3-7" aria-hidden="true" tabindex="-1"></a>    data_loss <span class="op">=</span> np.mean(sample_losses) </span>
+<span id="cb3-8"><a href="#cb3-8" aria-hidden="true" tabindex="-1"></a>    <span class="cf">return</span> data_loss</span>
+<span id="cb3-9"><a href="#cb3-9" aria-hidden="true" tabindex="-1"></a></span></code></pre></div>
 <p>Cross Entropy Loss class</p>
+<p>for classification problems</p>
 <div class="sourceCode" id="cb4"><pre
-class="sourceCode python"><code class="sourceCode python"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a></span></code></pre></div>
+class="sourceCode python"><code class="sourceCode python"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a>  <span class="co"># Common loss class</span></span>
+<span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a><span class="kw">class</span> Loss:</span>
+<span id="cb4-3"><a href="#cb4-3" aria-hidden="true" tabindex="-1"></a><span class="co"># Calculates the data and regularization losses # given model output and ground truth values  </span></span>
+<span id="cb4-4"><a href="#cb4-4" aria-hidden="true" tabindex="-1"></a>    <span class="kw">def</span> calculate(<span class="va">self</span>, output, y):</span>
+<span id="cb4-5"><a href="#cb4-5" aria-hidden="true" tabindex="-1"></a>          <span class="co"># Calculate sample losses</span></span>
+<span id="cb4-6"><a href="#cb4-6" aria-hidden="true" tabindex="-1"></a>          sample_losses <span class="op">=</span> <span class="va">self</span>.forward(output, y)</span>
+<span id="cb4-7"><a href="#cb4-7" aria-hidden="true" tabindex="-1"></a>          <span class="co"># Calculate mean loss</span></span>
+<span id="cb4-8"><a href="#cb4-8" aria-hidden="true" tabindex="-1"></a>          data_loss <span class="op">=</span> np.mean(sample_losses)</span>
+<span id="cb4-9"><a href="#cb4-9" aria-hidden="true" tabindex="-1"></a>          <span class="co"># Return loss</span></span>
+<span id="cb4-10"><a href="#cb4-10" aria-hidden="true" tabindex="-1"></a>          <span class="cf">return</span> data_loss</span>
+<span id="cb4-11"><a href="#cb4-11" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb4-12"><a href="#cb4-12" aria-hidden="true" tabindex="-1"></a><span class="co"># Cross-entropy loss</span></span>
+<span id="cb4-13"><a href="#cb4-13" aria-hidden="true" tabindex="-1"></a><span class="kw">class</span> Loss_CategoricalCrossentropy(Loss): <span class="co"># Forward pass</span></span>
+<span id="cb4-14"><a href="#cb4-14" aria-hidden="true" tabindex="-1"></a>    <span class="kw">def</span> forward(<span class="va">self</span>, y_pred, y_true): <span class="co"># Number of samples in a batch</span></span>
+<span id="cb4-15"><a href="#cb4-15" aria-hidden="true" tabindex="-1"></a>          samples <span class="op">=</span> <span class="bu">len</span>(y_pred)</span>
+<span id="cb4-16"><a href="#cb4-16" aria-hidden="true" tabindex="-1"></a>          <span class="co"># Clip data to prevent division by 0</span></span>
+<span id="cb4-17"><a href="#cb4-17" aria-hidden="true" tabindex="-1"></a>          <span class="co"># Clip both sides to not drag mean towards any value</span></span>
+<span id="cb4-18"><a href="#cb4-18" aria-hidden="true" tabindex="-1"></a>          y_pred_clipped <span class="op">=</span> np.clip(y_pred, <span class="fl">1e-7</span>, <span class="dv">1</span> <span class="op">-</span> <span class="fl">1e-7</span>)</span>
+<span id="cb4-19"><a href="#cb4-19" aria-hidden="true" tabindex="-1"></a>          <span class="co"># Probabilities for target values -</span></span>
+<span id="cb4-20"><a href="#cb4-20" aria-hidden="true" tabindex="-1"></a>          <span class="co"># only if categorical labels</span></span>
+<span id="cb4-21"><a href="#cb4-21" aria-hidden="true" tabindex="-1"></a>          <span class="cf">if</span> <span class="bu">len</span>(y_true.shape) <span class="op">==</span> <span class="dv">1</span>:</span>
+<span id="cb4-22"><a href="#cb4-22" aria-hidden="true" tabindex="-1"></a>              correct_confidences <span class="op">=</span> y_pred_clipped[</span>
+<span id="cb4-23"><a href="#cb4-23" aria-hidden="true" tabindex="-1"></a>                  <span class="bu">range</span>(samples),</span>
+<span id="cb4-24"><a href="#cb4-24" aria-hidden="true" tabindex="-1"></a>y_true ]</span>
+<span id="cb4-25"><a href="#cb4-25" aria-hidden="true" tabindex="-1"></a>          <span class="co"># Mask values - only for one-hot encoded labels</span></span>
+<span id="cb4-26"><a href="#cb4-26" aria-hidden="true" tabindex="-1"></a>          <span class="cf">elif</span> <span class="bu">len</span>(y_true.shape) <span class="op">==</span> <span class="dv">2</span>:</span>
+<span id="cb4-27"><a href="#cb4-27" aria-hidden="true" tabindex="-1"></a>              correct_confidences <span class="op">=</span> np.<span class="bu">sum</span>(</span>
+<span id="cb4-28"><a href="#cb4-28" aria-hidden="true" tabindex="-1"></a>                  y_pred_clipped<span class="op">*</span>y_true,</span>
+<span id="cb4-29"><a href="#cb4-29" aria-hidden="true" tabindex="-1"></a>axis<span class="op">=</span><span class="dv">1</span> )</span>
+<span id="cb4-30"><a href="#cb4-30" aria-hidden="true" tabindex="-1"></a><span class="co"># Losses</span></span>
+<span id="cb4-31"><a href="#cb4-31" aria-hidden="true" tabindex="-1"></a>          negative_log_likelihoods <span class="op">=</span> <span class="op">-</span>np.log(correct_confidences)</span>
+<span id="cb4-32"><a href="#cb4-32" aria-hidden="true" tabindex="-1"></a>          <span class="cf">return</span> negative_log_likelihoods</span></code></pre></div>
+<p>accuracy - how often the largest confidence is the correct class</p>
 <h3 id="ecdsa">ECDSA</h3>
 <p>https://www.instructables.com/Understanding-how-ECDSA-protects-your-data/</p>
 <p>Allows verification of authenticity without compromising security. It
